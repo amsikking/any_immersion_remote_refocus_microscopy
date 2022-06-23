@@ -1,0 +1,461 @@
+<!doctype html>
+<!-- 
+This publication template is based on the one created by Andrew G York:
+https://github.com/AndrewGYork/publication_template . Thanks Andrew!
+
+Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
+attribution is appreciated. Thanks, broccolini!
+-->
+<html lang="en">
+  <head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="citation_title" content="Deeper immersion-free and maximum NA microscopy with remote refocus optics">
+    <meta name="citation_author" content="Alfred Millett-Sikking">
+    <!-- <meta name="citation_publication_date" content="2019/04/17"> -->
+    <meta name="citation_journal_title" content="Github.io">
+    <meta name="citation_pdf_url" content=
+	"https://amsikking.github.io/deeper_immersion_free_microscopy/deeper_immersion_free_microscopy.pdf">
+    <title>Deeper_immersion-free_and_max_NA_microscopy_by_AMSikking</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/prism.css">
+    <script src="javascript/python-highlighting/prism.js"></script>
+    <script async src="javascript/Minimal-MathJax/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script src="javascript/update_figures.js"></script>
+    <script src="javascript/reference_list/reference_list.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Deeper immersion-free and max NA microscopy with RR optics</h1>
+        <ul>
+          <li class="download"><a class="buttons" 
+		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy/zipball/master">Download ZIP</a></li>
+          <li><a class="buttons github" 
+		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy">View On GitHub</a></li>
+          <li><a class="buttons pdf" 
+		  href="./deeper_immersion_free_microscopy.pdf">Download PDF</a></li>
+        </ul>
+        <p class="header">This project is maintained by 
+		<a class="header name" href="https://github.com/amsikking">amsikking</a> in the 
+		<a class="header name" href="https://andrewgyork.github.io/">York lab</a>, and was funded by 
+		<a class="header name" href="https://www.calicolabs.com/">Calico Life Sciences LLC</a></p>
+      </header>
+<!-- 
+##############################################################
+The real text begins here.
+##############################################################
+ -->
+<section>
+<h1>Research article</h1>
+<h3 class="onlyprint">
+Note that this is a limited PDF or print version; animated and interactive figures are disabled. For the full version 
+of this article, please visit one of the following links: 
+<a href="https://amsikking.github.io/deeper_immersion_free_microscopy">
+https://amsikking.github.io/deeper_immersion_free_microscopy</a>
+</h3>
+<noscript>
+<h3>Your browser doesn't seem to support Javascript. This document uses Javascript for interactive figures, math 
+typesetting, and to automatically generate the reference list. Either activate Javascript, or use the "Download PDF" 
+link above if you want properly typeset math and a reference list.</h3>
+</noscript>
+<h2>Deeper immersion-free and maximum NA microscopy with remote refocus optics</h2>
+<p class="author_list">Alfred Millett-Sikking<sup>1*</sup></p>
+<p class="author_affiliations"><sup>1</sup>Calico Life Sciences LLC, South San Francisco, CA 94080, USA</p>
+<p class="contact_email"><sup>*</sup>
+Institutional email:
+<a href="mailto:amsikking+deeperimmersionfree@calicolabs.com" target="_self">
+amsikking+deeperimmersionfree@calicolabs.com</a>
+; Permanent email: 
+<a href="mailto:amsikking+deeperimmersionfree@gmail.com" target="_self">
+amsikking+deeperimmersionfree@gmail.com</a></p>
+<p class="contact_email">
+Group website:
+<a href="https://andrewgyork.github.io">andrewgyork.github.io</a>
+</p>
+
+<h3>Abstract</h3>
+<p class="abstract">
+We typically achieve aberration-free 3D imaging in a widefield microscope by matching the immersion of the primary
+objective to the refractive index (RI) of the sample. In a remote refocus (RR) microscope we get high quality volumes
+by tuning the downstream optics to the RI of sample. Ideally we would optimize the widefield and RR optics for the 
+same sample, yielding the maximum diffraction limited range for both focus methods. However, we make the argument 
+that which RI standard focus and RR are optimized for is an independent choice, which counterintuitively leads to 
+some interesting design options. We discover a deeper immersion-free microscopy regime by using an air objective 
+with a RR optimized for liquid. For example we can extend the range of a Nikon 40x0.95 air objective from 6&mu;m to 
+151&mu;m in water (widefield vs RR). Avoiding liquid immersion can be very convenient for users 
+and great for automated microscopy, like high-throughput screening. We also find deeper maximum numerical aperture 
+(NA) microscopy for live biology by using a high NA oil objective with RR optics tuned for watery samples. For 
+example we can extend the range of a Nikon 40x1.30 oil objective from 8&mu;m to 65&mu;m in water, and enjoy a field 
+of view and NA that exceeds the equivalent water immersion objective. Furthermore we can now 
+build multi-immersion systems on the same platform that benefit from different regimes. For example a microscope with 
+40x0.95 air objective for speed and convenience, a 40x1.15 water objective for maximum depth and a 40x1.30 oil 
+objective for maximum NA. The design ideas we explore here are of particular relevance to systems with existing 
+RR optics, like single-objective light-sheet (SOLS) microscopes.
+</p>
+
+<h4>Intended audience</h4>
+<p class="abstract">Microscope users, builders and developers.</p>
+
+<h4>Peer review status</h4>
+<p class="abstract">First published <a href="https://doi.org/10.5281/zenodo.3244421">_blank_</a>
+(This article is not yet peer-reviewed)</p>
+<p class="abstract">Cite as: <a href="https://doi.org/10.5281/zenodo.3244420">_blank_</a></p>
+
+<h3 id="introduction">Introduction</h3>
+<p>
+Choosing an objective lens is one of the most important considerations when using a visible light microscope. For
+example an objective's <a href="./appendix.html#na_and_resolution">numerical aperture</a> (NA) and 
+<a href="./appendix.html#f_fov_and_pixels">field of view</a> (FOV) will determine the maximum available resolution 
+and object size in the image. When we image 3D semi-transparent biological samples at high NA it is necessary to 
+adjust the focal plane to access the volumetric information. For example we often move the objective towards the 
+object to get a series of 2D images at different depths, a method we refer to as "standard focus". The maximum 
+imaging depth of a typical widefield microscope is therefore ultimately limited by the working distance (WD) of the 
+objective.
+</p>
+<p>
+The positive working distance we need for standard focusing contains the 'final elements' in the objective lens
+design, where the shape and refractive index (RI) matter. Fortunately the shape is fixed by the image plane and the 
+final solid surface of the objective (usually a glass lens). However, the RI of this space can vary, i.e the 
+<em>immersion</em> medium (and sometimes a coverslip). When we use standard focus 'slabs' of intended immersion 
+(like air, water or oil) are effectively exchanged for slabs of sample. If the sample RI matches the immersion RI 
+then this is a null operation and the objective will image as designed 
+(<a href="#fig_sf_water_air_oil" target="_self">Figure 1, 1/3</a>). However, if there is a refractive index 
+<em>mismatch</em> then the slab of sample (with unintended RI) will produce spherical aberration at finite NA, making 
+the images blurry with enough depth (<a href="#fig_sf_water_air_oil" target="_self">Figure 1, 2/3 and 3/3</a>) 
+[<a class="citation" href="https://doi.org/10.1007/978-0-387-45524-2" 
+title="Handbook of Biological Confocal Microscopy, third edition;
+ J. Pawley; Springer US, ISBN 978-0-387-25921-5, eBook ISBN 978-0-387-45524-2, (2006)">Pawley 2006</a>].
+</p>
+
+<figure id="fig_sf_water_air_oil">
+<img src="figure_generation/sf_vs_rr_water_air_oil/standard_focus_water_air_oil.gif" alt="Figure 1" id="fig_1_gif_1" style="width:100%;">
+<figcaption>
+<strong>Figure 1: Standard focus into a watery sample with water, air and oil immersion.</strong> 
+This cartoon shows a watery 3D sample (like a cell in a multiwell plate) being imaged at different depths by a 
+standard widefield microscope (objective tube lens pair). The image is formed at the camera and relayed to the 
+toy screen, which shows image planes at different depths in the sample as the objective moves up and down.
+<strong>Animation 1/3</strong> shows a water immersion objective that is refractive index <em>matched</em> to the 
+sample, giving good images at depth.
+<strong>Animation 2/3</strong> shows an air objective that is refractive index <em>mismatched</em> to the sample and
+therefore gives blurry imaging from depth induced spherical aberration.
+<strong>Animation 3/3</strong> shows an oil immersion objective that (like animation 2/3) is also refractive index 
+<em>mismatched</em> giving blurry images with depth.
+ </figcaption>
+</figure>
+<p></p>
+
+<p>
+Our need to refractive index <em>match</em> the immersion to the sample for 3D imaging is awkward. The RI of 
+biological samples varies significantly, leaving microscope users (and lens designers) chasing around between 
+different immersion options. Air immersion is the most convenient and is excellent for high-speed tiling, but has the 
+lowest NA and low depth penetration due to the large RI difference. Water immersion is usually a good RI match for 
+live samples but requires regular hydration (from evaporation) and has the lowest NA of the liquid immersions. Oil 
+immersion offers the highest NA and is insensitive to coverslip thickness but struggles with depth from the RI 
+mismatch. A good compromise between NA and RI matching is silicone oil immersion, but this is still cumbersome in 
+tiling applications.
+</p>
+<p>
+Remote refocus (RR) optics 
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" 
+title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson;
+ Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>] 
+have been shown to be an important foundation in high-speed 3D imaging applications
+[<a class="citation" href="https://doi.org/10.5281/zenodo.1146083" 
+title="Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy; 
+A. Millett-Sikking, N.H. Thayer, A. Bohnert and A.G. York; (2018)">Millett-Sikking 2018</a>]
+, most notably in the recent uptake of single-objective light-sheet (SOLS) microscopes
+[<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
+title="High NA single-objective light-sheet; 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>,
+<a class="citation" href="https://doi.org/10.7554/eLife.57681" 
+title="A versatile oblique plane microscope for large-scale and high-resolution imaging of subcellular dynamics; 
+E. Sapoznik, B. Chang, J. Huh, R.J. Ju, E.V. Azarova, T. Pohlkamp, E.S. Welf, D. Broadbent, A.F. Carisey, 
+S.J. Stehbens, K. Lee, A. Marín, A.B. Hanker, J.C. Schmidt, C.L. Arteaga, B. Yang, Y. Kobayashi, P.R. Tata, 
+R. Kruithoff, K. Doubrovinski, D.P. Shepherd, A. Millett-Sikking, A.G. York, K.M. Dean and R.P. Fiolka; 
+(2020)">E. Sapoznik 2020</a>,
+<a class="citation" href="https://doi.org/10.1038/s41592-021-01175-7" 
+title="Real-time multi-angle projection imaging of biological dynamics; 
+B. Chang, J.D. Manton, E. Sapoznik, T. Pohlkamp, T.S. Terrones, E.S. Welf, V.S. Murali, P. Roudot, K. Hake, 
+L. Whitehead, A.G. York, K.M. Dean and R.P. Fiolka; 
+(2021)">Chang 2021</a>,
+<a class="citation" href="https://doi.org/10.1038/s41592-022-01417-2" 
+title="DaXi—high-resolution, large imaging volume and multi-view single-objective light-sheet microscopy; 
+B. Yang, M. Lange, A. Millett-Sikking, X. Zhao, J. Bragantini, S. VijayKumar, M. Kamb, R. Gómez-Sjöberg, A.C. Solak, 
+W. Wang, H. Kobayashi, M.N. McCarroll, L.W. Whitehead, R.P. Fiolka, T.B. Kornberg, A.G. York and L.A. Royer; 
+(2022)">Yang 2022</a>,
+<a class="citation" href="https://doi.org/10.1101/2022.06.12.495844" 
+title="Increasing the Field-of-View in Oblique Plane Microscopy via optical tiling; 
+B. Chen, B. Chang, F. Zhou, S. Daetwyler, E. Sapoznik, G.M. Gihana, L.P. Castro, M.C. Sorrell, K.M. Dean, 
+A. Millett-Sikking, A.G. York and R.P. Fiolka; 
+(2022)">Chen 2022</a>
+]
+. The main feature of an RR setup is
+our ability to adjust the focal plane without moving the primary objective or the sample, for example by moving one
+of the downstream objectives (<a href="#fig_rr_water_air_oil" target="_self">Figure 2, 1/3</a>). In a remote refocus
+we can exchange slabs of <em>different</em> refractive index between the sample and the remote volume. For example 
+it is common to use air immersion in the remote space with an aqueous sample. We avoid spherical aberration by 
+'tuning' the magnification between the sample and remote space to preserve angles (as detailed in 
+<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" 
+title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson;
+ Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>). 
+ <strong>So we should always optimize the remote refocus for the sample, not the immersion.</strong>
+</p>
+
+<figure id="fig_rr_water_air_oil">
+<img src="figure_generation/sf_vs_rr_water_air_oil/remote_refocus_water_air_oil.gif" 
+alt="Figure 2" id="fig_2_gif_1" style="width:100%;">
+<figcaption>
+<strong>Figure 2: Remote refocus into a watery sample with water, air and oil immersion.</strong> 
+This cartoon shows a watery 3D sample (like a cell in a multiwell plate) being imaged at different depths by a remote
+refocus microscope (a widefield + 2 additional microscopes). The optics in the first 2 microscopes (widefield + tube 
+lens objective pair) are configured to produce an aberration-free 3D copy of the sample in the remote space, which is 
+then re-imaged by the 3rd (objective tube lens pair). 
+<strong>Note: the remote refocus optics are 'tuned' for a watery sample, regardless of the immersion 
+used by the primary objective.</strong> 
+The final image is formed at the camera and relayed to the toy screen, which shows image planes at different depths 
+in the sample (as the objective in the 3rd microscope moves back and forth).
+<strong>Animation 1/3</strong> shows a water immersion objective that is refractive index <em>matched</em> to the 
+sample. In this configuration the standard focus and remote focus both have maximum range, although only the remote
+focus range is animated here (giving extra range).
+<strong>Animation 2/3</strong> shows an air objective that is refractive index <em>mismatched</em> to the sample,
+greatly reducing the range of standard focus. However the remote refocus is still optimized for a watery sample, and
+so the remote range persists.
+<strong>Deeper immersion-free microscopy</strong> is available in this configuration.
+<strong>Animation 3/3</strong> shows an oil immersion objective that (like animation 2/3) is also refractive index 
+<em>mismatched</em> (reducing the range of standard focus). However (just like animation 2/3) the remote refocus is 
+still optimized for a watery sample and the range persists.
+<strong>Deeper maximum NA microscopy</strong> is available in this configuration.
+ </figcaption>
+</figure>
+<p></p>
+
+<p>
+In a perfect imaging system we would match the sample and immersion RI, and we would correct the RR magnification for 
+the sample, yielding maximum range for both standard focus and remote refocus. If however, the RI of the sample 
+and immersion differ, then the range of standard focusing will reduce, but the remote refocus range persists. 
+Conversely, if we match the sample and immersion RI, but the remote refocus is optimized for a different RI, 
+then the RR range will reduce and the standard focus range will persist. <strong>So which refractive index we optimize
+for in standard focus and remote refocus is an independent choice</strong>.
+</p>
+<p>
+It is counter intuitive to deviate from the 'ideal' system design, where we optimize the immersion and remote refocus 
+for the same sample RI. However, upon closer inspection there are some interesting 
+options:
+<ul>
+<li>
+<strong>Deeper immersion-free microscopy:</strong> we can combine a high NA air objective (with very limited standard 
+focus range in liquids) with a remote refocus optimized for liquid 
+(<a href="#fig_rr_water_air_oil" target="_self">Figure 2, 2/3</a>). Avoiding liquid immersion is very convenient for 
+users and great for automated microscopy, like time-lapse imaging or high-speed tiling.
+</li>
+<li>
+<strong>Deeper maximum NA microscopy:</strong> we can combine a high NA oil objective (with reduced standard focus 
+range in watery samples) with a remote refocus optimized for water 
+(<a href="#fig_rr_water_air_oil" target="_self">Figure 2, 3/3</a>). Oil immersion is coverslip insensitive and offers 
+the maximum NA for live biological samples, exceeding that of high quality water immersion objectives.
+</li>
+</ul>
+</p>
+<p>
+We gear the rest of this article towards <em>how</em> to choose an objective lens in combination with RR optics, 
+particularly in the context of high NA microscopy (like 
+<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
+title="High NA single-objective light-sheet; 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">SOLS microscopes</a>)
+, and the regimes of deeper immersion-free and maximum NA imaging.
+</p>
+
+<h3 id="results">Results</h3>
+<p>
+To evaluate the deeper imaging potential of a remote refocus microscope 
+(<a href="#fig_rr_water_air_oil" target="_self">Figure 2</a>) compared to a widefield setup 
+(<a href="#fig_sf_water_air_oil" target="_self">Figure 1</a>) we take a practical approach, and model how a series of 
+commercially available objectives compare in each configuration. For the sake of simplicity we limit our search to a
+<a href="./appendix.html#objective_selection">collection of Nikon objectives</a> that are compatible with SOLS 
+microscope design (a compelling use case for RR optics). We can therefore constrain the 
+<a href="./appendix.html#na_and_resolution">numerical aperture</a>, 
+<a href="./appendix.html#f_fov_and_pixels">focal length</a> and immersion medium for a given setup, although we 
+point out that these ideas can be applied to other manufacturers, and at lower NA. We can then calculate the 
+<a href="./appendix.html#standard_focus_range">standard focus</a> and 
+<a href="./appendix.html#remote_refocus_range">remote refocus</a> ranges as a function of the sample refractive index 
+\( n_s \) over the biological range:
+\[ 1.33 \leq n_s \leq 1.51 \tag{1} \]
+</p>
+<p>
+In <a href="#fig_sf_range" target="_self">Figure 3</a> we show how the diffraction limited depth of standard focus on
+a widefield microscope varies as a function of the sample RI 
+<a href="./appendix.html#standard_focus_range">(equation a8)</a>. The interactive figure can be toggled between 
+linear and log scales for the highest NA objectives from Nikon, and those with the 
+<a href="./appendix.html#f_fov_and_pixels">most pixels</a> (\( N_{px} \)). For example in the high NA category the 
+100x1.35 silicone oil objective offers the best compromise for varying sample types, with a minimum range of 10&mu;m 
+for any RI. However, if the samples are mostly aqueous then the 60x1.27 water lens has a much larger range 
+(truncated by the working distance at 180&mu;m). The 40x0.95 air objective is perhaps the worst option for depth, 
+offering only ~6&mu;m for any liquid sample (visible on the log scale). The 100x1.45 oil may be the least attractive 
+option for live biology, with the inconvenience of liquid immersion and the lowest range in watery samples (forcing 
+the 3&mu;m lower bound).
+</p>
+
+<figure id="fig_sf_range">
+<img src="figure_generation/sf_and_rr_range/sf_range_highest_na.png" alt="Figure 3" id="fig_3_png" style="width:100%;">
+<table class="figure_controls">
+	<tr>
+	<td>Nikon objectives:</td>
+	<td><select id="figure_3_choice_objectives" onchange="update_figure_3()">
+			<option value="_highest_na" selected="selected"> Highest NA </option>  
+			<option value="_most_pixels"> Most pixels </option>
+	</select></td>
+	<td>Depth scale:</td>
+	<td><select id="figure_3_choice_scale" onchange="update_figure_3()"> 
+		<option value="" selected="selected"> linear </option>
+		<option value="_log"> log </option>
+	</select></td>
+	</tr>
+</table>
+<figcaption><strong>Figure 3: the standard focus range of a widefield microscope.</strong>
+The diffraction limited imaging depth is plotted as a function of sample refractive index for a collection of 
+<a href="./appendix.html#objective_selection">Nikon objectives</a> at 532nm
+<a href="./appendix.html#standard_focus_range">(equation a8)</a>. The figure is interactive and can be toggled 
+between linear and log scales for the highest NA options, and objectives with the 
+<a href="./appendix.html#f_fov_and_pixels">most pixels</a>. The curves are truncated at the working distance of each
+objective and vertical reference lines are added for the standard immersions (water=1.33, silicone=1.41 and oil=1.51).
+The lower bound line shows the depth at which any objective can image at the diffraction limit.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+In <a href="#fig_sf_and_rr_range" target="_self">Figure 4</a> we show the combined range of a widefield microscope 
+with remote refocus optics (<a href="./appendix.html#combined_range">equation a11</a>). Whilst the primary objectives 
+are limited to a particular immersion, we can (in principle) 'tune' the remote refocus optics continuously across 
+the range of the sample RI (shown here). All of the configurations now benefit from the extra range provided by the RR 
+optics. In particular in the high NA category the lower bound has now jumped from 3&mu;m to 35&mu;m, converting the 
+100x1.45 oil lens into an attractive option for many applications. In practice this delivers deeper imaging at 
+<strong>maximum NA</strong> for any sample RI under 1.45. Most apparent in the high NA category is the large increase 
+in depth now available to the 40x0.95 air objective, offering deeper <strong>immersion-free</strong> imaging up to 
+151&mu;m!
+</p>
+
+<figure id="fig_sf_and_rr_range">
+<img src="figure_generation/sf_and_rr_range/sf_and_rr_range_highest_na.png" alt="Figure 4" id="fig_4_png" style="width:100%;">
+<table class="figure_controls">
+	<tr>
+	<td>Nikon objectives:</td>
+	<td><select id="figure_4_choice_objectives" onchange="update_figure_4()">
+			<option value="_highest_na" selected="selected"> Highest NA </option>  
+			<option value="_most_pixels"> Most pixels </option>
+	</select></td>
+	<td>Depth scale:</td>
+	<td><select id="figure_4_choice_scale" onchange="update_figure_4()"> 
+		<option value="" selected="selected"> linear </option>
+		<option value="_log"> log </option>
+	</select></td>
+	</tr>
+</table>
+<figcaption><strong>Figure 4: the combined range of a widefield microscope with remote refocus optics.</strong>
+The diffraction limited imaging depth is plotted as a function of sample refractive index for a collection of 
+<a href="./appendix.html#objective_selection">Nikon objectives</a> at 532nm
+<a href="./appendix.html#combined_range">(equation a11)</a>. The figure is interactive and can be toggled between 
+linear and log scales for the highest NA options, and objectives with the 
+<a href="./appendix.html#f_fov_and_pixels">most pixels</a>. The curves are truncated at the working distance of each
+objective and vertical reference lines are added for the standard immersions (water=1.33, silicone=1.41 and oil=1.51).
+The lower bound line shows the depth at which any objective can image at the diffraction limit.
+</figcaption>
+</figure>
+<p></p>
+
+<h3 id="discussion">Discussion</h3>
+<p>
+The question of <em>which</em> objective or remote refocus optics are really optimal for a given microscope 
+(or application) may be confusing to the novice, or seem dull to the seasoned microscopist. However, we clearly show
+in the <a href="#results" target="_self">results section</a> that whether considering a widefield or RR setup, the 
+accessible focal range depends strongly on these choices. To highlight some interesting options we target the 
+discussion towards <em>watery samples</em> that are most relevant to 3D time-lapse imaging, like living cells and 
+organisms.
+</p>
+<p>
+In a widefield microscope for any sample RI under ~1.36 we can clearly see that the 60x1.27 water objective has the 
+highest diffraction limited depth and the best 3D imaging performance 
+(<a href="#fig_sf_range" target="_self">Figure 3</a>). In this regime the other objectives (air, silicone and oil) 
+should only be considered for very shallow 3D samples (&lt 10&mu;m), or speciality situations where the lack of 
+immersion, or marginal increase in NA are required (like high-speed 2D tiling or TIRF). With a 333&mu;m field of 
+view, a theoretical resolving power of ~250nm and ~2600 pixels the 60x water objective is a good match for current 
+sCMOS cameras and a compelling option (<a href="./appendix.html#table_highest_na">specifications from table</a>). 
+We note however, that water objectives are sensitive to coverslip tilt, thickness and require regular hydration.
+</p>
+<p>
+In a remote refocus microscope 
+(<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
+title="High NA single-objective light-sheet; 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">like a SOLS system</a>)
+ there are now a series of interesting options that significantly
+outcompete widefield in terms of volumetric range and NA (<a href="#fig_rr_range" target="_self">Figure 4</a>).
+For example we can combine an RR optimized for water with multiple objectives, like a 40x1.15 
+water objective (MRD77410) for maximum depth (600&mu;m WD), a 40x0.95 air objective for 
+<strong>immersion-free</strong> speed and convenience, and a 40x1.30 oil objective for <strong>maximum NA</strong>. 
+Because these lenses have the same focal length they are <em>interchangeable</em> on the same system, and at 40x 
+magnification offer larger fields of view (500&mu;m) and pixel counts (&gt 2927) than for example the 60x1.27 water 
+objective.
+</p>
+<p>
+We find the <strong>immersion-free</strong> configurations particularly attractive for high throughput screening 
+applications
+[<a class="citation" href="https://doi.org/10.1038/srep37777" 
+title="Time-lapse 3-D measurements of a glucose biosensor in multicellular spheroids by light sheet fluorescence 
+microscopy in commercial 96-well plates; 
+V. Maioli, G. Chennell, H. Sparks, T. Lana, S. Kumar, D. Carling, A. Sardini and C. Dunsby; 
+(2016)">Maioli 2016</a>]
+, where the benefit of robust high-speed tiling can greatly outweigh the marginal loss in numerical 
+aperture. In this regime the increase in depth of a remote refocus microscope over a widefield is substantial, for 
+example 151&mu;m vs 6&mu;m for the 40x0.95 air objective. On the other hand we see the coverslip 
+insensitive oil immersion options with <strong>maximum NA</strong> as a great option for 3D super resolution
+[<a class="citation" href="https://doi.org/10.1038/nmeth.1744" 
+title="Live-cell 3D super-resolution imaging in thick biological samples; 
+F.C. Zanacchi, Z. Lavagnino, M.P. Donnorso, A.D. Bue, L. Furia, M. Faretta and A. Diaspro; 
+(2011)">Zanacchi 2011</a>] and low light experiments 
+[<a class="citation" href="https://doi.org/10.1126/science.1127344" 
+title="Imaging Intracellular Fluorescent Proteins at Nanometer Resolution; 
+E. Betzig, G.H. Patterson, R. Sougrat, O.W. Lindwasser, S. Olenych, J.S. Bonifacino, M.W. Davidson, 
+J. Lippincott-Schartz and H.F. Hess; 
+(2006)">Betzig 2006</a>]
+that benefit from the highest angular collection at the primary objective. For example the 40x1.30 oil objective from the
+<a href="./appendix.html#table_most_pixels">'most pixels' category</a> can now be considered near maximum NA for 
+water samples up to a diffraction limited depth of 65&mu;m, an impressive option for many samples.
+<p>
+Given the 'mix and match' nature of the design space and the strong dependency on sample RI, we encourage builders to 
+absorb the ideas presented here, run their own calculations, and then build the best system for their application.
+</p>
+
+<h3>Acknowledgements</h3>
+
+<p>This work was funded and supported by <a href="https://www.calicolabs.com/">Calico Life Sciences LLC</a> and we 
+would like to acknowledge the fantastic research environment that has been created here by the senior staff. We have 
+enjoyed a spectacular level of freedom and support that has made this work possible.</p>
+
+<p>
+In particular I'd like to acknowledge <a href="https://andrewgyork.github.io/">Andrew G. York</a> 
+for the uniquely innovative environment he has championed at Calico, and his ongoing scientific mentorship and 
+support.
+</p>
+
+<h3><a href="./appendix.html">Appendix</a></h3>
+<p>Additional details can be found in the <a href="./appendix.html">appendix</a>.</p>
+
+<noscript>
+<h3>Your browser doesn't seem to support Javascript. This document uses Javascript to generate a reference list, 
+which would normally be displayed here. Either activate Javascript, or use the "Download PDF" link above if you 
+want to see the reference list.</h3></noscript>
+
+</section>
+<footer>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="./images/cc_by_4p0.png"></a>
+
+  <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a></small></p>
+</footer>
+</div>
+ <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<!-- 
+This publication template is based on the one created by Andrew G York:
+https://github.com/AndrewGYork/publication_template . Thanks Andrew!
+
+Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
+attribution is appreciated. Thanks, broccolini!
+-->
+<html lang="en">
+  <head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Deeper_immersion-free_and_max_NA_microscopy_by_AMSikking</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/prism.css">
+    <script src="javascript/python-highlighting/prism.js"></script>
+    <script async src="javascript/Minimal-MathJax/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script src="javascript/update_figures.js"></script>
+    <script src="javascript/reference_list/reference_list.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Deeper immersion-free and max NA microscopy with RR optics</h1>
+        <ul>
+          <li class="download">
+          <li class="download"><a class="buttons" 
+		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy/zipball/master">Download ZIP</a></li>
+          <li><a class="buttons github" 
+		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy">View On GitHub</a></li>
+          <li><a class="buttons pdf" 
+		  href="./deeper_immersion_free_microscopy_appendix.pdf">Download PDF</a></li>
+        </ul>
+        <p class="header">This project is maintained by 
+		<a class="header name" href="https://github.com/amsikking">amsikking</a> in the 
+		<a class="header name" href="https://andrewgyork.github.io/">York lab</a>, and was funded by 
+		<a class="header name" href="https://www.calicolabs.com/">Calico Life Sciences LLC</a></p>
+      </header>
+<!-- 
+##############################################################
+The real text begins here.
+##############################################################
+ -->
+<section>
+<h1>Appendix</h1>
+<h3 class="onlyprint">
+Note that this is a limited PDF or print version; animated and interactive figures are disabled. For the full version 
+of this article, please visit one of the following links: 
+<a href="https://amsikking.github.io/deeper_immersion_free_microscopy">
+https://amsikking.github.io/deeper_immersion_free_microscopy</a>
+</h3>
+<noscript>
+<h3>Your browser doesn't seem to support Javascript. This document uses Javascript for interactive figures, math 
+typesetting, and to automatically generate the reference list. Either activate Javascript, or use the "Download PDF" 
+link above if you want properly typeset math and a reference list.</h3>
+</noscript>
+<h2>Deeper immersion-free and maximum NA microscopy with remote refocus optics</h2>
+<p><a href="./index.html" title="Main text" target="_self">Back to the main text</a></p>
+
+
+
+<h3 id="theory">Theory</h3>
+<p>
+Here we present the equations used in the results section to evaluate the widefield and remote refocus microscope 
+design options.
+</p>
+
+<h4 id="na_and_resolution">Numerical aperture and resolution</h4>
+<p>
+The numerical aperture (NA) is defined as:
+\[ NA = n_i\sin\theta_i \tag{a1} \]
+where \( n_i \) is the refractive index of the immersion medium and \( \theta_i \) is the collection half-angle of 
+the objective. In the case of a planar refractive index boundary like a coverslip the NA is conserved via Snell's law:
+\[ n_s\sin\theta_s = n_i\sin\theta_i \tag{a2} \]
+where \( n_s \) is the refractive index of the sample and \( \theta_s \) is the collection half-angle in sample space. 
+According to the Rayleigh criteria the smallest resolvable feature size \( r_{min} \) is
+then:
+\[ r_{min} = 0.61 \frac{\lambda}{NA} \tag{a3}\]
+where \( \lambda \) is the wavelength of the collected light
+[<a class="citation" href="https://doi.org/10.1007/978-0-387-45524-2" 
+title="Handbook of Biological Confocal Microscopy, third edition;
+ J. Pawley; Springer US, ISBN 978-0-387-25921-5, eBook ISBN 978-0-387-45524-2, (2006)">Pawley 2006</a>].
+</p>
+
+<h4 id="f_fov_and_pixels">Focal length, field of view and pixels</h4>
+<p>
+The objective lens focal length \( f \) is found with:
+\[ f = \frac{f_{TL}}{M} \tag{a4}\]
+where \( f_{TL} \) is the tube lens focal length (200mm for Nikon) and \( M \) is the magnification of the objective. 
+The sample space field of view (FOV) is then assumed to be:
+\[ FOV = \frac{FN}{M} \tag{a5}\]
+where FN is the field number according to the manufacturer (20mm assumed for Nikon). When choosing an objective it 
+can be useful to estimate the number of Nyquist pixels \( N_{px} \) the lens can deliver across the FOV for 
+specifying a camera using:
+\[ N_{px} = 2 \frac{FOV}{r_{min}} \tag{a6}\]
+Note: this can also serve as a measure of the <em>quality</em> of the objective, where more pixels usually indicates 
+a more sophisticated lens design.
+</p>
+
+<h4 id="standard_focus_range">Standard focus range</h4>
+<p>
+From <a class="citation" href="https://www.researchgate.net/publication/235927740_Effects_of_aberrating_layers_and_tube_length_on_con_focal_imaging_properties" 
+title="Effects of aberrating layers and tube length on con focal imaging properties; 
+C. Sheppard and C. J. Cogswell; Optik, vol 87(1), p34-38, (1991)">Sheppard 1991</a>, 
+equation 18 proposes that in a medium of refractive index \( n_1 \), the maximum acceptable wavefront 
+aberration (Rayleigh criterion) will not be exceeded if the thickness of a slab of dielectric \( t \) and refractive 
+index \( n_2 \) meets the following condition:
+\[ t \leq \frac{\lambda n_2^3}{2n_1^2(n_2^2 - n_1^2)\sin^4(\alpha/2)} \tag{a7} \]
+where \( \alpha \) is the collection half-angle in the \( n_1 \) space (i.e. the immersion). Originally evaluated for 
+a phase error of \( \pi/2 \), equation \( (1) \) gives negative values for \( n_1 \gt n_2 \). If we allow 
+\( n_1 \gt n_2 \) and a phase error of \( \pm \pi/2 \) then we can rewrite \( (1) \) in a slightly more convenient 
+format to give the maximum depth of standard focus \( z_{sf\_max} \):
+\[ z_{sf\_max} = \frac{\lambda}{2\sin^4(\theta_i/2)} \left\lvert 
+\frac{n_s^3}{n_i^2(n_s^2 - n_i^2)} \right\lvert \tag{a8} \]
+</p>
+
+<h4 id="remote_refocus_range">Remote refocus range</h4>
+<p>
+From
+<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" 
+title="An optical technique for remote focusing in microscopy; 
+E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">
+Botcherby 2007</a>, 
+equation 23 proposes that the Strehl ratio \( S \) of a remote refocus can be modelled by:
+\[ S = 1 - \frac{4n^2k^2z^4(3 + 16\cos\alpha + \cos2\alpha)\sin^8(\alpha/2)}
+{75f^2(3+8\cos\alpha + \cos2\alpha)} \tag{a9} \]
+where \( n \) is the refractive index of the sample, \( k = 2\pi / \lambda \) is the wavenumber, \( z \) is the axial 
+distance from the traditional focal plane, \( f \) is the focal length and \( \alpha \) is the collection half-angle 
+of the objective. If we set \( S = 0.8 \) (the traditional diffraction limit) and rearrange we can estimate the 
+maximum remote refocus depth \( z_{rr\_max} \):
+\[ z_{rr\_max} = \pm \frac{1}{2\sin^2(\theta_s/2)}
+\sqrt[4]{\frac{15 \lambda^2 f^2 (3+8\cos\theta_s + \cos2\theta_s)}
+{\pi^2 n_s^2 (3 + 16\cos\theta_s + \cos2\theta_s)}} \tag{a10} \]
+Note: the substitution \( \alpha = \theta_s \) is subtle. In
+<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" 
+title="An optical technique for remote focusing in microscopy; 
+E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">
+Botcherby 2007</a> at the critical substitution of equation 8 (\( \sin\theta = \rho \sin\alpha \)) the paper reads 
+"In this expression \( \alpha \) is the semi-aperture acceptance angle of the lens" so one could assume 
+\( \alpha = \theta_i \). However the substitution is in reference to coordinates in <em>object space</em>.
+</p>
+
+<h4 id="combined_range">Combined range</h4>
+<p>
+For a microscope with remote refocus optics (e.g. Figure 2) we can now estimate the maximum focus range in the sample 
+\( z_{max} \) as the sum of the standard and remote ranges:
+\[ z_{max} \approx z_{sf\_max} + \left\lvert z_{rr\_max} \right\lvert \tag{a11} \]
+Note: the <em>approximately</em> equals sign. The standard focus and remote refocus ranges use different definitions 
+for the diffraction limit, and are approximate models that ignore higher order aberrations. There is also no 
+consideration given to field effects, chromatic aberrations or design and manufacturing imperfections that can be 
+expected in real objective lenses.
+</p>
+
+<h3 id="objective_selection">Objective selection</h3>
+<p>
+In a SOLS microscope
+[<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
+title="High NA single-objective light-sheet; 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>]
+, as the angular range in the sample \( \theta_s \) decreases, the tilt of the last microscope 
+\( \theta_{tilt} \) increases according to:
+\[ \theta_{tilt} = 90 - \theta_s \quad (deg) \tag{a13} \]
+Currently the AMS-AGY v2.0 objective
+[<a class="citation" href="https://doi.org/10.1038/s41592-022-01417-2" 
+title="DaXi—high-resolution, large imaging volume and multi-view single-objective light-sheet microscopy; 
+B. Yang, M. Lange, A. Millett-Sikking, X. Zhao, J. Bragantini, S. VijayKumar, M. Kamb, R. Gómez-Sjöberg, A.C. Solak, 
+W. Wang, H. Kobayashi, M.N. McCarroll, L.W. Whitehead, R.P. Fiolka, T.B. Kornberg, A.G. York and L.A. Royer; 
+(2022)">Yang 2022</a>]
+has the most extreme tilt range of any SOLS compatible objective, with maximum 
+tilt of 55 degrees. So combining \( (a1) \), \( (a12) \) and \( (a13) \) the minimum acceptable sample space NA is: 
+\[ NA_s \geq 1.33\sin(90 - 55)= 0.76  \tag{a14} \]
+After applying the lower bound on NA of 0.76, the 'best' objectives for the standard immersions were selected in the 
+following 2 categories:
+</p>
+
+<ul>
+<li>
+<strong>Nikon objectives, highest NA:</strong>
+<p></p>
+<div id="table_highest_na">
+<style>
+#table_highest_na table, #table_highest_na th, #table_highest_na td {
+border:1px solid black; text-align:center; padding:1px; font-size:small;}
+</style>
+<table>
+  <tr><th>Part #</th>	<th>M</th>	  <th>NA</th>	<th>Imm.</th>     <th>WD (&mu;m)</th> <th>FOV (&mu;m)</th> <th>r_min (&mu;m)</th> <th>N_px</th></tr>
+  <tr><td>MRD70470</td>	<td>40x</td>  <td>0.95</td>	<td>air</td>      <td>210</td>	   	  <td>500</td>	       <td>0.342</td> 	      <td>2927</td></tr>
+  <tr><td>MRY10060</td>	<td>60x</td>  <td>1.27</td>	<td>water</td> 	  <td>180</td>	      <td>333</td>         <td>0.256</td>         <td>2608</td></tr>
+  <tr><td>MRD73950</td>	<td>100x</td> <td>1.35</td>	<td>silicone</td> <td>310</td>	      <td>200</td>         <td>0.240</td>         <td>1663</td></tr>
+  <tr><td>MRD71970</td>	<td>100x</td> <td>1.45</td>	<td>oil</td> 	  <td>130</td>	      <td>200</td>         <td>0.224</td>         <td>1787</td></tr>
+</table>
+</div>
+</li>
+
+<li>
+<strong>Nikon objectives, most pixels:</strong>
+<p></p>
+<div id="table_most_pixels">
+<style>
+#table_most_pixels table, #table_most_pixels th, #table_most_pixels td {
+border:1px solid black; text-align:center; padding:1px; font-size:small;}
+</style>
+<table>
+  <tr><th>Part #</th>	<th>M</th>	  <th>NA</th>	<th>Imm.</th>     <th>WD (&mu;m)</th> <th>FOV (&mu;m)</th> <th>r_min (&mu;m)</th> <th>N_px</th></tr>
+  <tr><td>MRD70270</td> <td>20x</td>  <td>0.80</td>	<td>air</td> 	  <td>800</td>	      <td>1000</td>	       <td>0.406</td> 	      <td>4930</td></tr>
+  <tr><td>MRD77200</td> <td>20x</td>  <td>0.95</td>	<td>water</td> 	  <td>990</td>	      <td>1000</td>	       <td>0.342</td> 	      <td>5854</td></tr>
+  <tr><td>MRD73250</td> <td>25x</td>  <td>1.05</td>	<td>silicone</td> <td>550</td>	      <td> 800</td>	       <td>0.309</td> 	      <td>5176</td></tr>
+  <tr><td>MRH01401</td> <td>40x</td>  <td>1.30</td>	<td>oil</td> 	  <td>240</td>	      <td> 500</td>	       <td>0.250</td> 	      <td>4005</td></tr>  
+</table>
+</div>
+</ul>
+<p>
+Note: Speciality objectives in the categories of TIRF and Multi-photon may not perform optimally for remote refocus
+and were avoided.
+</p>
+
+</section>
+<footer>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="./images/cc_by_4p0.png"></a>
+
+  <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a></small></p>
+</footer>
+</div>
+ <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+</body>
+</html>
