@@ -4,7 +4,7 @@
 
 A scientific publication that describes a new approach for deeper immersion-free and maximum numerical aperture microscopy with remote refocus optics. This repository 
 hosts everything you need to reproduce our results. Read the publication here:
-https://github.com/amsikking/deeper_immersion_free_microscopy (hosted via Alfred Millett-Sikking's personal GitHub account).
+https://amsikking.github.io/deeper_immersion_free_microscopy (hosted via Alfred Millett-Sikking's personal GitHub account).
 
 This repository is intended to hold a (mostly) self-contained scientific publication. It contains:
 
