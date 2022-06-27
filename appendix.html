@@ -59,8 +59,6 @@ link above if you want properly typeset math and a reference list.</h3>
 <h2>Deeper immersion-free and maximum NA microscopy with remote refocus optics</h2>
 <p><a href="./index.html" title="Main text" target="_self">Back to the main text</a></p>
 
-
-
 <h3 id="theory">Theory</h3>
 <p>
 Here we present the equations used in the results section to evaluate the widefield and remote refocus microscope 
@@ -96,7 +94,7 @@ can be useful to estimate the number of Nyquist pixels \( N_{px} \) the lens can
 specifying a camera using:
 \[ N_{px} = 2 \frac{FOV}{r_{min}} \tag{a6}\]
 Note: this can also serve as a measure of the <em>quality</em> of the objective, where more pixels usually indicates 
-a more sophisticated lens design.
+a more sophisticated lens design (similar in concept to <em>etendue</em>).
 </p>
 
 <h4 id="standard_focus_range">Standard focus range</h4>
@@ -158,8 +156,8 @@ expected in real objective lenses.
 In a SOLS microscope
 [<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
 title="High NA single-objective light-sheet; 
-A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>]
-, as the angular range in the sample \( \theta_s \) decreases, the tilt of the last microscope 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>], 
+as the angular range in the sample \( \theta_s \) decreases, the tilt of the last microscope 
 \( \theta_{tilt} \) increases according to:
 \[ \theta_{tilt} = 90 - \theta_s \quad (deg) \tag{a13} \]
 Currently the AMS-AGY v2.0 objective
@@ -185,11 +183,11 @@ following 2 categories:
 border:1px solid black; text-align:center; padding:1px; font-size:small;}
 </style>
 <table>
-  <tr><th>Part #</th>	<th>M</th>	  <th>NA</th>	<th>Imm.</th>     <th>WD (&mu;m)</th> <th>FOV (&mu;m)</th> <th>r_min (&mu;m)</th> <th>N_px</th></tr>
-  <tr><td>MRD70470</td>	<td>40x</td>  <td>0.95</td>	<td>air</td>      <td>210</td>	   	  <td>500</td>	       <td>0.342</td> 	      <td>2927</td></tr>
-  <tr><td>MRY10060</td>	<td>60x</td>  <td>1.27</td>	<td>water</td> 	  <td>180</td>	      <td>333</td>         <td>0.256</td>         <td>2608</td></tr>
-  <tr><td>MRD73950</td>	<td>100x</td> <td>1.35</td>	<td>silicone</td> <td>310</td>	      <td>200</td>         <td>0.240</td>         <td>1663</td></tr>
-  <tr><td>MRD71970</td>	<td>100x</td> <td>1.45</td>	<td>oil</td> 	  <td>130</td>	      <td>200</td>         <td>0.224</td>         <td>1787</td></tr>
+  <tr><th>Part #</th>	<th>M</th>	  <th>NA</th>	<th>Imm.</th>     <th>WD (&mu;m)</th> <th>FOV (&mu;m)</th> <th>r<sub>min</sub> (&mu;m)</th> <th>N_px</th></tr>
+  <tr><td>MRD70470</td>	<td>40x</td>  <td>0.95</td>	<td>air</td>      <td>210</td>	   	  <td>500</td>	       <td>0.342</td> 	      			<td>2927</td></tr>
+  <tr><td>MRY10060</td>	<td>60x</td>  <td>1.27</td>	<td>water</td> 	  <td>180</td>	      <td>333</td>         <td>0.256</td>         			<td>2608</td></tr>
+  <tr><td>MRD73950</td>	<td>100x</td> <td>1.35</td>	<td>silicone</td> <td>310</td>	      <td>200</td>         <td>0.240</td>         			<td>1663</td></tr>
+  <tr><td>MRD71970</td>	<td>100x</td> <td>1.45</td>	<td>oil</td> 	  <td>130</td>	      <td>200</td>         <td>0.224</td>         			<td>1787</td></tr>
 </table>
 </div>
 </li>
@@ -203,11 +201,11 @@ border:1px solid black; text-align:center; padding:1px; font-size:small;}
 border:1px solid black; text-align:center; padding:1px; font-size:small;}
 </style>
 <table>
-  <tr><th>Part #</th>	<th>M</th>	  <th>NA</th>	<th>Imm.</th>     <th>WD (&mu;m)</th> <th>FOV (&mu;m)</th> <th>r_min (&mu;m)</th> <th>N_px</th></tr>
-  <tr><td>MRD70270</td> <td>20x</td>  <td>0.80</td>	<td>air</td> 	  <td>800</td>	      <td>1000</td>	       <td>0.406</td> 	      <td>4930</td></tr>
-  <tr><td>MRD77200</td> <td>20x</td>  <td>0.95</td>	<td>water</td> 	  <td>990</td>	      <td>1000</td>	       <td>0.342</td> 	      <td>5854</td></tr>
-  <tr><td>MRD73250</td> <td>25x</td>  <td>1.05</td>	<td>silicone</td> <td>550</td>	      <td> 800</td>	       <td>0.309</td> 	      <td>5176</td></tr>
-  <tr><td>MRH01401</td> <td>40x</td>  <td>1.30</td>	<td>oil</td> 	  <td>240</td>	      <td> 500</td>	       <td>0.250</td> 	      <td>4005</td></tr>  
+  <tr><th>Part #</th>	<th>M</th>	  <th>NA</th>	<th>Imm.</th>     <th>WD (&mu;m)</th> <th>FOV (&mu;m)</th> <th>r<sub>min</sub> (&mu;m)</th> <th>N_px</th></tr>
+  <tr><td>MRD70270</td> <td>20x</td>  <td>0.80</td>	<td>air</td> 	  <td>800</td>	      <td>1000</td>	       <td>0.406</td> 	      			<td>4930</td></tr>
+  <tr><td>MRD77200</td> <td>20x</td>  <td>0.95</td>	<td>water</td> 	  <td>990</td>	      <td>1000</td>	       <td>0.342</td> 	      			<td>5854</td></tr>
+  <tr><td>MRD73250</td> <td>25x</td>  <td>1.05</td>	<td>silicone</td> <td>550</td>	      <td> 800</td>	       <td>0.309</td> 	      			<td>5176</td></tr>
+  <tr><td>MRH01401</td> <td>40x</td>  <td>1.30</td>	<td>oil</td> 	  <td>240</td>	      <td> 500</td>	       <td>0.250</td> 	      			<td>4005</td></tr>  
 </table>
 </div>
 </ul>
