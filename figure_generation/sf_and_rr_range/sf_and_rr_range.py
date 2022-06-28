@@ -66,8 +66,8 @@ def plot(title, obj_name, obj_data, y_limits, filename, log=False, show=False):
     ax.axvline(x=1.33, color='b', linestyle=':')
     ax.axvline(x=1.41, color='y', linestyle='--')
     ax.axvline(x=1.51, color='r', linestyle='-.')
-    ax.axhline(y=min(obj_data[3]), color='k', linestyle=(0,(1,1)),
-               label='lower bound (%iµm)'%min(obj_data[3]))
+##    ax.axhline(y=min(obj_data[3]), color='k', linestyle=(0,(1,1)),
+##               label='lower bound (%iµm)'%min(obj_data[3]))
     # configure:
     ax.set_xlim(xmin=n_s[0], xmax=n_s[-1])
     ax.set_xticks(np.linspace(1.33, 1.51, 10))
