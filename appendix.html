@@ -214,6 +214,186 @@ Note: Speciality objectives in the categories of TIRF and Multi-photon may not p
 and were avoided.
 </p>
 
+<h3 id="zoom_lens">Zoom lens</h3>
+<p>
+In our previous remote refocus designs we used static lenses to adjust the magnification between the sample and the 
+remote space according to equation 2
+[<a class="citation" href="https://doi.org/10.5281/zenodo.1146083" 
+title="Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy; 
+A. Millett-Sikking, N.H. Thayer, A. Bohnert and A.G. York; (2018)">Millett-Sikking 2018</a>, 
+<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
+title="High NA single-objective light-sheet; 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>].
+Specifically we chose to modify the second tube lens in the optical train, often referred to as 'tube lens 2' or TL2.
+The TL2 location is convenient, as it leaves the first objective and tube lens pair in their traditional (stock)
+configuration, and allows the addition of a unity magnification scanning system. Here we take the same approach, and 
+optimize our zoom optics at the TL2 location, specifying some of the upstream and downstream optics in order to 
+produce a concrete design.
+
+<h4 id="zoom_lens_specifications">Specifications</h4>
+<p>
+To produce an inexpensive zoom lens with stock parts we narrow the optical requirement to a specific RR system. We
+assume a widefield microscope at 40x magnification since this offers many attractive primary objective options (air, 
+water, silicone and oil immersion at high NA from various manufacturers). We then assume a 5mm focal length air lens 
+for the second RR objective (often referred to as 'objective 2' or O2). For example the Nikon 40x0.95 air lens 
+(9.5mm back focal plane diameter) is a good high NA option, with a high enough collection cone (~72deg) and pixel 
+count (~2927) for most RR designs. We target a RR magnification that covers the full biological refractive index 
+range (1.33-1.51) by tuning the focal length of TL2 in the range 150-132.5mm (i.e. 30-26.5x for microscope 2). 
+Finally we assume a standard sCMOS field of view (~13.5mm width) and add the additional constraints of needing a 
+constant track length and telecentric image.
+</p>
+
+<h4 id="zoom_lens_design">Design</h4>
+<p>
+Using the above specifications, we adopt a simple 'positive-negative-positive' (PNP) zoom design and cycle through 
+readily available stock parts. After some iteration we settle on a series of Edmund Optics achromats that satisfy our 
+optical requirements, whilst also being mechanically compatible and inexpensive (see the 
+<a href="#zoom_lens_mechanics" target="_self">mechanics section</a> for parts). 
+Our constraint of only using stock lenses forces a 5 achromat solution 
+(<a href="#fig_optical_performance" target="_self">Figure A2</a>), where a 3 achromat custom design would suffice. We 
+note that a 'standard' tube lens typically has 2 achromats, so a 3 lens solution would only add 1 achromat to the 
+optical train (a minimal drawback for the system). However, we consider the small penalty on transmission efficiency 
+(~1.5%) from the 2 additional achromats in the design we present to be a good trade for avoiding bespoke glass.
+</p>
+
+<h4 id="zoom_lens_performance">Performance</h4>
+<p>
+In <a href="#fig_zoom_spot_diagram_all_configs" target="_self">Figure A1</a> we see the spot diagrams as a function 
+of field (centre to edge) and configuration (min to max focal length) across the visible spectrum (450-700nm). We 
+can see that the system is mostly diffraction limited throughout the matrix, with some marginal degradation at the 
+edge of the field for the shorter focal lengths (higher RR magnifications). In the interactive
+<a href="#fig_zoom_optical_performance" target="_self">Figure A2</a> we show detailed views of the performance at the 
+extremes of the range with configurations 1 and 8 (i.e. magnifications of 1.33 and 1.51).
+</p>
+
+<figure id="fig_zoom_spot_diagram_all_configs">
+<img src="figures/zoom_lens/optics/performance/spot_diagram_all_configs.png" alt="Figure A1" id="fig_A1_png" style="width:100%;">
+<figcaption>
+<strong>Figure A1: Multi-configuration spot diagram.</strong> 
+This screen shot from Zemax shows the spot diagrams as a function of field (0, 1.3 and 2.6deg) and configurations 
+(1-8) across the visible spectrum (450-700nm). Here the configurations 1 to 8 correspond to target focal lengths of
+132.5mm to 150mm in steps of 2.5mm. Spots that appear within the Airy diameter (black ring) can be considered 
+diffraction limited.
+ </figcaption>
+</figure>
+<p></p>
+
+<figure id="fig_zoom_optical_performance">
+<img src="figures/zoom_lens/optics/performance/layout_config_8.png" alt="Figure A2" id="fig_A2_png" style="width:100%;">
+<table class="figure_controls">
+	<tr>
+	<td>Configuration:</td>
+	<td><select id="figure_A2_choice_configuration" onchange="update_figure_A2()">
+			<option value="_config_8" selected="selected">8 (f=150mm, M=1.33)</option>  
+			<option value="_config_1">1 (f=132.5mm, M=1.51)</option>
+	</select></td>
+	<td>Figure:</td>
+	<td><select id="figure_A2_choice_figure" onchange="update_figure_A2()"> 
+		<option value="layout" selected="selected">layout</option>
+		<option value="spot_diagram">spot diagram</option>
+		<option value="RMS_vs_field">wavefront error</option>
+		<option value="Huygens_PSF">PSF</option>
+	</select></td>
+	</tr>
+</table>
+<figcaption><strong>Figure A2: Optical performance.</strong> 
+This interactive figure shows screen shots from Zemax with layout, spot diagrams, PSF and wavefront error for 
+configurations 1 and 8 (i.e. the extremes of the zoom range).
+</figcaption>
+</figure>
+<p></p>
+
+<h4 id="zoom_lens_motion">Motion</h4>
+<p>
+Part of the design challenge in a zoom system is accomodating the motion of elements (or groups of elements). Here we
+adopt relatively large motions of 2 of the 3 lens groups from the PNP design. This has the drawback of being slower
+than small motions, but the benefit of loosening the opto-mechanical tolerances of the system, thereby allowing us to 
+use stock optics and mechanics. In <a href="#fig_zoom_motion" target="_self">Figure A3</a> we see how we
+need to move the lens groups from the 'zero position' with a focal length of 132.5mm to the 'limit position' with a 
+focal length of 150mm. The negative lens (centre element in the design) moves the most by almost 50mm, while the 
+positive group near the image move slightly less by around 42mm (the first lens group in the design is static).
+</p>
+
+<figure id="fig_zoom_motion">
+<img src="figures/zoom_lens/optics/zoom_lens_motion.png" alt="Figure A3" id="fig_A3_png" style="width:100%;">
+<figcaption>
+<strong>Figure A3: Zoom lens motion.</strong> 
+This plot shows how the negative lens (central element in the PNP design) and positive group (2 achromats near the
+image) should move to produce a given focal length for the zoom lens. The first lens group in the PNP design is 
+static.
+ </figcaption>
+</figure>
+<p></p>
+
+<p> Below we provide the 'motion functions' that convert a requested focal length to a required movement of each lens
+or lens group (for driving linear stages or equivalent mechanics). Here's 
+<a href="figures/zoom_lens/optics/zoom_lens_motion_example.py" target="_self">an example</a> 
+for a focal length of 140mm:
+</p>
+<pre><code class="language-python"># Zoom_lens_132.5-150mm_motion.ods trendline polynomials
+# Data from Zemax
+def negative_lens_motion(f_mm):
+    motion_mm = (- 0.012921858472509 * f_mm**2
+                 + 6.467807910667240 * f_mm
+                 - 630.2815284192340)
+    return motion_mm
+
+def positive_group_motion(f_mm):
+    motion_mm = (+ 0.005518525287293 * f_mm**2
+                 + 0.885914869404723 * f_mm
+                 - 214.4010550854960)
+    return motion_mm
+
+# Input:
+f_mm = 140
+N_motion = negative_lens_motion(f_mm)
+P_motion = positive_group_motion(f_mm)
+print('requested focal length = %0.2f'%f_mm)
+print('negative lens motion   = %0.2f'%N_motion)
+print('positive group motion  = %0.2f'%P_motion)
+
+# Output:
+## requested focal length = 140.00
+## negative lens motion   = 21.94
+## positive group motion  = 17.79
+</code></pre>
+
+<h4 id="zoom_lens_mechanics">Mechanics</h4>
+<p>
+Here we offer a relatively simple mechanical design 
+(<a href="#fig_zoom_mechanics" target="_self">Figure A4</a>), that utilizes some fast 50mm linear stages 
+from Thorlabs (DDS050). However, any mechanical solution that achieves the required alignment of the lenses and 
+relative motions is acceptable. The solution we present combines the zoom optics into a single large mount that can 
+(in principle) be aligned to an axis that is parallel to the optical table, and includes provision for an objective, 
+a dichroic and an unhampered image plane. The DDS050 stages have a max speed of 500mm/s so we can expect a responsive
+zoom experience for tuning the magnification to different sample types.
+See the included 
+<a href="figures/zoom_lens/mechanics/Zoom_lens_132.5-150mm.pdf" target="_self">Zoom_lens_132.5-150mm.pdf</a> 
+for a high quality reproduction.
+</p>
+
+<figure id="fig_zoom_mechanics">
+<img src="figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_1.png" alt="Figure A4" id="fig_A4_png" style="width:100%;">
+<table class="figure_controls">
+	<tr>
+	<td>Drawing:</td>
+	<td><select id="figure_A4_choice_sheet" onchange="update_figure_A4()">
+			<option value="1" selected="selected">Sheet 1 (overview)</option>  
+			<option value="2">Sheet 2 (bill of materials)</option>
+			<option value="3">Sheet 3 (lens assembly)</option>
+			<option value="4">Sheet 4 (zoom configuration)</option>
+			<option value="5">Sheet 5 (alignment)</option>
+	</select></td>
+	</tr>
+</table>
+<figcaption><strong>Figure A2: Mechanical design.</strong> 
+This interactive figure shows the mechanical design of the zoom system including a dichroic and objective lens with 
+their associated mounts. The figure can be toggled between the different sheets of the drawings showing an overview,
+bill of materials, lens assembly, zoom configuration and alignment.
+</figcaption>
+</figure>
+<p></p>
+
 </section>
 <footer>
   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
