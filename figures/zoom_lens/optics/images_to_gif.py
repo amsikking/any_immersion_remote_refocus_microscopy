@@ -7,8 +7,8 @@ from pathlib import Path
 import subprocess
 
 directory = os.path.join(Path.cwd(), 'images')
-start_frame = 1 # crop frames here
-end_frame = 18
+start_frame = 0 # crop frames here
+end_frame = 17
 
 if not os.path.exists(directory):
     print('\'images\' folder not found')
