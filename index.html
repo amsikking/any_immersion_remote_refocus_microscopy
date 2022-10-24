@@ -11,13 +11,13 @@ attribution is appreciated. Thanks, broccolini!
     <base target="_blank">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="citation_title" content="Deeper immersion-free and maximum NA microscopy with remote refocus optics">
+    <meta name="citation_title" content="Any immersion remote refocus microscopy">
     <meta name="citation_author" content="Alfred Millett-Sikking">
     <!-- <meta name="citation_publication_date" content="2019/04/17"> -->
     <meta name="citation_journal_title" content="Github.io">
     <meta name="citation_pdf_url" content=
 	"https://amsikking.github.io/deeper_immersion_free_microscopy/deeper_immersion_free_microscopy.pdf">
-    <title>Deeper_immersion-free_and_max_NA_microscopy_by_AMSikking</title>
+    <title>Any_immersion_remote_refocus_microscopy_by_AMSikking</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/prism.css">
     <script src="javascript/python-highlighting/prism.js"></script>
@@ -29,7 +29,7 @@ attribution is appreciated. Thanks, broccolini!
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Deeper immersion-free and max NA microscopy with RR optics</h1>
+        <h1 class="header">Any immersion remote refocus (AIRR) microscopy</h1>
         <ul>
           <li class="download"><a class="buttons" 
 		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy/zipball/master">Download ZIP</a></li>
@@ -61,7 +61,7 @@ https://amsikking.github.io/deeper_immersion_free_microscopy</a>
 typesetting, and to automatically generate the reference list. Either activate Javascript, or use the "Download PDF" 
 link above if you want properly typeset math and a reference list.</h3>
 </noscript>
-<h2>Deeper immersion-free and maximum NA microscopy with remote refocus optics</h2>
+<h2>Any immersion remote refocus (AIRR) microscopy</h2>
 <p class="author_list">Alfred Millett-Sikking<sup>1*</sup></p>
 <p class="author_affiliations"><sup>1</sup>Calico Life Sciences LLC, South San Francisco, CA 94080, USA</p>
 <p class="contact_email"><sup>*</sup>
@@ -78,22 +78,22 @@ Group website:
 
 <h3>Abstract</h3>
 <p class="abstract">
-We typically achieve aberration-free 3D imaging in a widefield microscope by matching the immersion of the primary
-objective to the refractive index (RI) of the sample. In a remote refocus (RR) microscope, we get aberration-free 
-volumes by setting the downstream optics for the RI of the sample. Normally, we would optimize the widefield and RR 
-optics for the same sample, yielding the maximum diffraction limited depth for both focus methods. Here we make 
-the argument that which RI we optimize for in standard focus and RR is an independent choice, which counterintuitively 
-leads to some intriguing design options. We discover a deeper immersion-free microscopy regime by using an air 
-objective with a RR optimized for liquid. For example, we can extend the range of a Nikon 40x0.95 air objective from 
-6&mu;m to 151&mu;m in water (widefield vs RR). Avoiding liquid immersion can be very convenient for users 
-and great for automated microscopy, like high-throughput screening. We also find deeper maximum numerical aperture 
-(NA) microscopy for live biology by using a high NA oil objective with RR optics set for watery samples. For 
-example, we can extend the range of a Nikon 40x1.30 oil objective from 8&mu;m to 65&mu;m in water, and enjoy a field 
-of view and NA that exceeds the equivalent water immersion objective. Furthermore, we can combine these new imaging 
-regimes into a single extended range multi-immersion system, with immersion-free, maximum depth and maximum NA
-modalities. Moreover, we present a dynamic zoom lens to enable fast RR tuning in the refractive index range 1.33-1.51, 
-which maximizes performance for a diverse range of biological samples. The design ideas we explore here are readily 
-applied to systems with existing RR optics, like single-objective light-sheet (SOLS) microscopes.
+We present a new approach to aberration-free 3D imaging with remote refocus optics, where an objective of any 
+immersion can be combined with a sample of any refractive index (RI). Normally, we optimize standard focus and
+remote refocus (RR) optics for the same sample RI, yielding the maximum diffraction limited depth for both focus 
+methods. However, we make the argument that which RI we optimize for in standard focus and RR is an independent 
+choice, which counterintuitively leads to some intriguing design options. We discover a deeper immersion-free 
+microscopy regime by using an air objective with a RR optimized for liquid. For example, we can extend the range 
+of a Nikon 40x0.95 air objective from 6&mu;m to 151&mu;m in water (standard focus vs RR). Avoiding liquid immersion 
+can be very convenient for users and great for automated microscopy, like high-throughput screening. We also find 
+deeper maximum numerical aperture (NA) microscopy for live biology by using a high NA oil objective with RR optics 
+set for watery samples. For example, we can extend the range of a Nikon 40x1.30 oil objective from 8&mu;m to 
+65&mu;m in water, and enjoy a field of view and NA that exceeds the equivalent water immersion objective. 
+Furthermore, we can combine these new imaging regimes into a single extended range multi-immersion system, with 
+immersion-free, maximum depth and maximum NA modalities. Moreover, we present a dynamic zoom lens to enable fast 
+RR tuning in the refractive index range 1.33-1.51, which maximizes performance for a diverse range of biological 
+samples. The design ideas we explore here are readily applied to systems with existing RR optics, like 
+single-objective light-sheet (SOLS) microscopes.
 </p>
 
 <h4>Intended audience</h4>
@@ -376,7 +376,7 @@ A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York;
 with the hope that the sample RI would not deviate much from the immersion of the primary objective. Here we present
 a dynamic zoom lens to enable fast RR tuning in the refractive index range 1.33-1.51, which maximizes performance for 
 a diverse range of biological samples (<a href="#fig_zoom_optics" target="_self">Figure 5</a>). Our example uses 
-inexpensive stock parts, maintains constract track length and telecentricity, and is diffraction limited across the 
+inexpensive stock parts, maintains constant track length and telecentricity, and is diffraction limited across the 
 visible spectrum and standard sCMOS field of view 
 (<a href="./appendix.html#zoom_lens">see appendix for details</a>).
 </p>
@@ -388,7 +388,7 @@ visible spectrum and standard sCMOS field of view
 This animation shows an example of a zoom lens that can replace a static tube lens in a remote refocus microscope. In 
 this version the focal length varies continuously as the elements are moved, allowing the magnification of the RR to 
 be tuned accross the biological refractive index range 1.33-1.51. The lens uses inexpensive stock parts, maintains 
-constract track length and telecentricity, and is diffraction limited accross the visible spectrum and standard sCMOS 
+constant track length and telecentricity, and is diffraction limited accross the visible spectrum and standard sCMOS 
 field of view (<a href="./appendix.html#zoom_lens">see appendix for details</a>).
 </figcaption>
 </figure>
@@ -422,7 +422,7 @@ A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York;
  we present a new series of interesting options that significantly
 outcompete widefield in terms of volumetric range and NA (<a href="#fig_rr_range" target="_self">Figure 4</a>).
 For example, we can combine an RR optimized for water with multiple objectives, like a 40x1.15 
-water objective (MRD77410) for maximum depth (600&mu;m WD), a 40x0.95 air objective for 
+water objective (MRD77410) for <strong>maximum depth</strong> (600&mu;m WD), a 40x0.95 air objective for 
 <strong>immersion-free</strong> speed and convenience, and a 40x1.30 oil objective for <strong>maximum NA</strong>. 
 Because these lenses have the same focal length they are <em>interchangeable</em> on the same system, and at 40x 
 magnification, they offer larger fields of view (500&mu;m) and pixel counts (&gt; 2927) than the 60x1.27 water 
