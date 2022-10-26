@@ -26,11 +26,11 @@ attribution is appreciated. Thanks, broccolini!
         <h1 class="header">Any immersion remote refocus (AIRR) microscopy</h1>
         <ul>
           <li class="download"><a class="buttons" 
-		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy/zipball/master">Download ZIP</a></li>
+		  href="https://github.com/AMSikking/any_immersion_remote_refocus_microscopy/zipball/master">Download ZIP</a></li>
           <li><a class="buttons github" 
-		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy">View On GitHub</a></li>
+		  href="https://github.com/AMSikking/any_immersion_remote_refocus_microscopy">View On GitHub</a></li>
           <li><a class="buttons pdf" 
-		  href="./deeper_immersion_free_microscopy_appendix.pdf">Download PDF</a></li>
+		  href="./any_immersion_remote_refocus_microscopy_appendix.pdf">Download PDF</a></li>
         </ul>
         <p class="header">This project is maintained by 
 		<a class="header name" href="https://github.com/amsikking">amsikking</a> in the 
@@ -47,8 +47,8 @@ The real text begins here.
 <h3 class="onlyprint">
 Note that this is a limited PDF or print version; animated and interactive figures are disabled. For the full version 
 of this article, please visit one of the following links: 
-<a href="https://amsikking.github.io/deeper_immersion_free_microscopy">
-https://amsikking.github.io/deeper_immersion_free_microscopy</a>
+<a href="https://amsikking.github.io/any_immersion_remote_refocus_microscopy">
+https://amsikking.github.io/any_immersion_remote_refocus_microscopy</a>
 </h3>
 <noscript>
 <h3>Your browser doesn't seem to support Javascript. This document uses Javascript for interactive figures, math 
@@ -394,6 +394,74 @@ bill of materials, lens assembly, zoom configuration and alignment.
 </figcaption>
 </figure>
 <p></p>
+
+<h3 id="large_fov_sols">Large FOV SOLS</h3>
+<h4 id="large_fov_sols_current">Current prototype</h4>
+<p>
+On the road to building an 'any immersion' large FOV SOLS microscope we opted to build a 'static' configuration 
+(i.e. no zoom lens) to show the potential of the new approach. The system was built to accommodate primary objectives
+with a 5mm effective focal length (i.e. the Nikon 40x family) with a remote refocus tuned for watery samples (i.e.
+a sample RI of 1.33). The transition from air to water immersion is one of the most extreme examples of an RI 
+mismatch and so the Nikon 40x0.95 air and 40x1.15 water objectives were chosen as options for the primary objective.
+The last microscope (often referred to as microscope 3 in a SOLS design) was tilted to 50deg to accommodate the NA 
+of both the air and water objectives. A simple cylindrical lens light-sheet excitation path was assembled, and 
+combined with the following emission path optics:
+</p>
+
+<div id="large_fov_sols_optics">
+<style>
+#large_fov_sols_optics table, #large_fov_sols_optics th, #large_fov_sols_optics td {
+border:1px solid black; text-align:center; padding:1px; font-size:small;}
+</style>
+<table>
+  <tr><th>Item</th>	<th>Supplier</th>	<th>Part</th>					<th>Description</th>											</tr>
+  <tr><td>S</td>	<td>Biologist</td>	<td>Sample</td>					<td>preferred refractive index: 1.33</td>						</tr>
+  <tr><td>O1</td>	<td>Nikon</td>		<td>MRD77410 <br>
+  <strong>or</strong><br> MRD00405</td>									<td>CFI Apo LWD Lambda S 40XC WI (NA=1.15) <br>
+  <strong>or</strong><br> CFI Plan Apo Lambda 40XC (NA=0.95)</td>																		</tr>
+  <tr><td>TL1</td>	<td>Nikon</td>		<td>MXA22018</td>				<td>Tube lens, EFL=200 mm</td>									</tr>
+  <tr><td>SL1</td>	<td>Thorlabs</td>	<td>TTL100-A</td>				<td>Scan lens, EFL=100 mm</td>									</tr>
+  <tr><td>G1</td>	<td>Thorlabs</td>	<td>GVS211/M</td>				<td>1D Galvo system, &empty;10 mm, E02 coated</td>				</tr>
+  <tr><td>SL2</td>	<td>Thorlabs</td>	<td>TTL100-A</td>				<td>Scan lens, EFL=100 mm</td>									</tr>
+  <tr><td>TL2</td>	<td>Thorlabs</td>	<td>AMS custom</td>				<td>Tube lens, EFL=300 mm</td>									</tr>
+  <tr><td>D</td>	<td>Chroma</td>		<td>ZT405/488/561/640rpcv2</td>	<td>Quad band dichroic</td>										</tr>
+  <tr><td>O2</td>	<td>Nikon</td>		<td>MRD00205</td>				<td>CFI Plan Apo Lambda 20XC (NA 0.75)</td>						</tr>
+  <tr><td>O2*</td>	<td>Carolina</td>	<td>633037</td>					<td>Cover Glasses, Circles, 25 mm, Thickness 0.13-0.17 mm</td>	</tr>
+  <tr><td>O3</td>	<td>ASI</td>		<td>AMS-AGY v2.0</td>			<td>Special glass tipped objective (a.k.a. KingSnout)</td>		</tr>
+  <tr><td>E</td>	<td>Chroma</td>		<td>ZET405/488/561/640m</td>	<td>Quad emission filter, &empty;25 mm mounted</td>				</tr>
+  <tr><td>TL3</td>	<td>Thorlabs</td>	<td>TTL200MP</td>				<td>Tube lens, EFL=200 mm</td>									</tr>
+  <tr><td>C</td>	<td>PCO</td>		<td>edge 4.2 cl</td>			<td>sCMOS camera, 2048x2048 px, 6.5μm pitch</td>				</tr>
+</table>
+</div>
+
+<h4 id="large_fov_sols_data">Data</h4>
+<p>
+The Python scripts that were used to run the microscope and process the data are included in the 
+<a href="figures/data" target="_self">data folder</a>. The microscope was aligned on a best effort basis, with
+an overexpanded Gaussian beam for the light-sheet input (wasteful but gave uniform illumination). The light-sheet 
+was generated with a 1mm slit aperture just before the cylindrical lens which was mapped onto the O2 back focal 
+plane with a 1:1 relay (so about 0.66mm at the O1 BFP in this configuration). The PSF data was processed with
+the same method as <a href="https://github.com/amsikking/SOLS_psf_data">here</a> (which includes sample data). To
+avoid bloat the raw data (~500GB) is not included here so the publication can be readily stored and circulated 
+offline.
+</p>
+
+<h4 id="large_fov_sols_improved">Improved configuration</h4>
+<p>
+Some attractive upgrades to the current prototype include:
+</p>
+
+<ul>
+<li>Adding the zoom lens to allow continuos tuning of the remote refocus volume to the sample refractive index 
+(which should also keep the light-sheet aligned).</li>
+<li>Swapping O2 from the Nikon 20x0.75 air objective to the 40x0.95 air objective. This gives improved collection 
+from higher NA primary objectives, and the 40x has the correct effective focal length (5mm) to pair with the zoom 
+assembly.</li>
+<li>Using a high quality coverslip at O2. <a href="https://www.asiimaging.com/">ASI</a> currently offers the
+Nikon 40x0.95 air objective with a high quality (AR coated) coverslip glued to the front.
+<li>Adjusting the focal length of tube lens 3 for a good compromise on the Nyquist pixel size (something like a
+250mm EFL).</li>
+</ul>
 
 </section>
 <footer>
