@@ -16,7 +16,7 @@ attribution is appreciated. Thanks, broccolini!
     <!-- <meta name="citation_publication_date" content="2019/04/17"> -->
     <meta name="citation_journal_title" content="Github.io">
     <meta name="citation_pdf_url" content=
-	"https://amsikking.github.io/deeper_immersion_free_microscopy/deeper_immersion_free_microscopy.pdf">
+	"https://amsikking.github.io/any_immersion_remote_refocus_microscopy/any_immersion_remote_refocus_microscopy.pdf">
     <title>Any_immersion_remote_refocus_microscopy_by_AMSikking</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/prism.css">
@@ -32,11 +32,11 @@ attribution is appreciated. Thanks, broccolini!
         <h1 class="header">Any immersion remote refocus (AIRR) microscopy</h1>
         <ul>
           <li class="download"><a class="buttons" 
-		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy/zipball/master">Download ZIP</a></li>
+		  href="https://github.com/AMSikking/any_immersion_remote_refocus_microscopy/zipball/master">Download ZIP</a></li>
           <li><a class="buttons github" 
-		  href="https://github.com/AMSikking/deeper_immersion_free_microscopy">View On GitHub</a></li>
+		  href="https://github.com/AMSikking/any_immersion_remote_refocus_microscopy">View On GitHub</a></li>
           <li><a class="buttons pdf" 
-		  href="./deeper_immersion_free_microscopy.pdf">Download PDF</a></li>
+		  href="./any_immersion_remote_refocus_microscopy.pdf">Download PDF</a></li>
         </ul>
         <p class="header">This project is maintained by 
 		<a class="header name" href="https://github.com/amsikking">amsikking</a> in the 
@@ -53,8 +53,8 @@ The real text begins here.
 <h3 class="onlyprint">
 Note that this is a limited PDF or print version; animated and interactive figures are disabled. For the full version 
 of this article, please visit one of the following links: 
-<a href="https://amsikking.github.io/deeper_immersion_free_microscopy">
-https://amsikking.github.io/deeper_immersion_free_microscopy</a>
+<a href="https://amsikking.github.io/any_immersion_remote_refocus_microscopy">
+https://amsikking.github.io/any_immersion_remote_refocus_microscopy</a>
 </h3>
 <noscript>
 <h3>Your browser doesn't seem to support Javascript. This document uses Javascript for interactive figures, math 
@@ -66,11 +66,11 @@ link above if you want properly typeset math and a reference list.</h3>
 <p class="author_affiliations"><sup>1</sup>Calico Life Sciences LLC, South San Francisco, CA 94080, USA</p>
 <p class="contact_email"><sup>*</sup>
 Institutional email:
-<a href="mailto:amsikking+deeperimmersionfree@calicolabs.com" target="_self">
-amsikking+deeperimmersionfree@calicolabs.com</a>
+<a href="mailto:amsikking+AIRR@calicolabs.com" target="_self">
+amsikking+AIRR@calicolabs.com</a>
 ; Permanent email: 
-<a href="mailto:amsikking+deeperimmersionfree@gmail.com" target="_self">
-amsikking+deeperimmersionfree@gmail.com</a></p>
+<a href="mailto:amsikking+AIRR@gmail.com" target="_self">
+amsikking+AIRR@gmail.com</a></p>
 <p class="contact_email">
 Group website:
 <a href="https://andrewgyork.github.io">andrewgyork.github.io</a>
@@ -189,7 +189,7 @@ title="DaXi—high-resolution, large imaging volume and multi-view single-object
 B. Yang, M. Lange, A. Millett-Sikking, X. Zhao, J. Bragantini, S. VijayKumar, M. Kamb, R. Gómez-Sjöberg, A.C. Solak, 
 W. Wang, H. Kobayashi, M.N. McCarroll, L.W. Whitehead, R.P. Fiolka, T.B. Kornberg, A.G. York and L.A. Royer; 
 (2022)">Yang 2022</a>,
-<a class="citation" href="https://doi.org/10.1101/2022.06.12.495844" 
+<a class="citation" href="https://doi.org/10.1364/BOE.467969" 
 title="Increasing the Field-of-View in Oblique Plane Microscopy via optical tiling; 
 B. Chen, B. Chang, F. Zhou, S. Daetwyler, E. Sapoznik, G.M. Gihana, L.P. Castro, M.C. Sorrell, K.M. Dean, 
 A. Millett-Sikking, A.G. York and R.P. Fiolka; 
@@ -394,6 +394,89 @@ field of view (<a href="./appendix.html#zoom_lens">see appendix for details</a>)
 </figure>
 <p></p>
 
+<h3 id="data">Data</h3>
+<p>
+To demonstrate the power of this approach we built a prototype large field of view 
+<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
+title="High NA single-objective light-sheet; 
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">SOLS microscope</a> with 
+(static) remote refocus optics tuned for water 
+(<a href="./appendix.html#large_fov_sols_current">see here for current instrument details</a>). We used this 
+platform to directly <strong>compare a Nikon 40x1.15 water objective against a Nikon 40x0.95 air objective</strong>, 
+both imaging deep into a
+<a href="https://github.com/amsikking/fluorescent_beads_in_agarose">watery gel filled with fluorescent beads</a>.
+We use the water objective as the 'benchmark' for a typical optical configuration, where the immersion and sample 
+have the same RI, and so the volumetric point spread function (PSF) is insensitive to standard focus 
+(<a href="#fig_water_objective_psf_vs_sf" target="_self">Figure 6</a>). The main benefits of this modality are 
+increased NA and total focus range (i.e. standard plus remote refocus), in exchange for the inconvenience of the 
+immersion.
+</p>
+
+<figure id="fig_water_objective_psf_vs_focus">
+<img src="figures/data/water_objective/psf_vs_focus/output.gif" alt="Figure 6" id="fig_6_gif_1" style="width:100%;">
+<figcaption>
+<strong>Figure 6: PSF vs standard focus for a 40x1.15 water objective.</strong>
+This animation shows the volumetric point spread function of a Nikon 40x1.15 water immersion objective as a 
+function of standard focus (z). The flourescent beads were prepared in a watery gel according to 
+<a href="https://github.com/amsikking/fluorescent_beads_in_agarose">this protocol</a>. Since the sample
+RI <em>matches</em> the water immersion the PSF is insensitive to standard focus, allowing an increased range of 
+focus (standard + remote) when using the microscope in this modality. <strong>Note:</strong> each frame of the 
+animation shows the max projections of the entire volume (~330x355x125)&mu;m<sup>3</sup> in traditional XY, XZ 
+and YZ coordinates.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+We can now <em>swap</em> the water objective for the air objective and (perhaps counterintuitively!) get good 
+volumetric PSF <em>deep</em> into the watery gel. This modality has the benefit of being immersion-free, with the 
+drawback of reduced NA and standard focus range (about ~6&mu;m in agreement with 
+<a href="#fig_sf_range" target="_self">Figure 3</a>).
+</p>
+
+<figure id="fig_air_objective_psf_vs_focus">
+<img src="figures/data/air_objective/psf_vs_focus/output.gif" alt="Figure 7" id="fig_7_gif_1" style="width:100%;">
+<figcaption>
+<strong>Figure 7: PSF vs standard focus for a 40x0.95 air objective.</strong>
+This animation shows the volumetric point spread function of a Nikon 40x0.95 air objective as a 
+function of standard focus. The flourescent beads were prepared in a watery gel according to 
+<a href="https://github.com/amsikking/fluorescent_beads_in_agarose">this protocol</a>. Since the sample
+RI strongly <em>mismatches</em> the air immersion the PSF is highly sensitive to standard focus. However, as 
+predicted by the results section, there is a ~6&mu;m range over which the remote refocus volume is good, allowing 
+deeper immersion-free imaging when using the microscope in this modality (i.e. for convenience or high speed tiling
+etc). <strong>Note:</strong> each frame of the animation shows the max projections of the entire volume 
+(~330x355x125)&mu;m<sup>3</sup> in traditional XY, XZ and YZ coordinates.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+If we 'park' the standard focus in a good place for both the water and air objectives (i.e. at 'zero' depth where
+the focal plane is just above the coverslip) then we can compare the volumetric PSF in both configurations 
+(~330x195x65)&mu;m<sup>3</sup>. For the <strong>water objective PSF</strong> we found full width half max (FWHM) 
+values in the range <strong>(425-582)nm radially and (1.38&pm;0.11)&mu;m axially</strong> 
+<a href="figures/data/water_objective/beads">(2577 beads used for statistics)</a>. For the 
+<strong>air objective PSF</strong> we found FWHM values in the range <strong>(422-550)nm radially and 
+(2.08&pm;0.07)&mu;m axially</strong> 
+<a href="figures/data/air_objective/beads">(2716 beads)</a>. As expected the water objective has notably improved 
+axial PSF due to the higher NA. The higher NA should also show in a reduced radial PSF but the 
+<a href="./appendix.html#large_fov_sols_current">current instrument prototype</a> was originally optimized for 
+the air objective so there is some vignetting at objective 2 and the pixel size (~220nm) is too large 
+(<a href="./appendix.html#large_fov_sols_improved">addressed here with an improved configuration</a>). Overall 
+these PSF results are in line with similar microscopes like DaXi which gave (380-480)nm radial and 
+(1.86&pm;0.17)&mu;m axial
+[<a class="citation" href="https://doi.org/10.1038/s41592-022-01417-2" 
+title="DaXi—high-resolution, large imaging volume and multi-view single-objective light-sheet microscopy; 
+B. Yang, M. Lange, A. Millett-Sikking, X. Zhao, J. Bragantini, S. VijayKumar, M. Kamb, R. Gómez-Sjöberg, A.C. Solak, 
+W. Wang, H. Kobayashi, M.N. McCarroll, L.W. Whitehead, R.P. Fiolka, T.B. Kornberg, A.G. York and L.A. Royer; 
+(2022)">Yang 2022</a>] or tiling OPM with (390-430)nm radial and (1.22&pm;0.13)&mu;m axial
+[<a class="citation" href="https://doi.org/10.1364/BOE.467969" 
+title="Increasing the Field-of-View in Oblique Plane Microscopy via optical tiling; 
+B. Chen, B. Chang, F. Zhou, S. Daetwyler, E. Sapoznik, G.M. Gihana, L.P. Castro, M.C. Sorrell, K.M. Dean, 
+A. Millett-Sikking, A.G. York and R.P. Fiolka; 
+(2022)">Chen 2022</a>].
+</p>
+
 <h3 id="discussion">Discussion</h3>
 <p>
 The question of <em>which</em> objective or remote refocus optics are optimal for a given microscope (or application) 
@@ -437,9 +520,10 @@ E.E. Diel, J.W. Lichtman and D.S. Richardson; (2020)">Diel 2020</a>].
 We assert that remote refocus optics should always be configured for the sample refractive index, and not the 
 objective immersion. We acknowledge that for the same or similar samples this may be achieved with static optical 
 configurations. However, we present a dynamic zoom lens to quickly tune the RR optics for the biological refractive 
-index range 1.33-1.51, which maximizes system performance. <strong>We propose that a dynamic magnification 
-compensator is the correct way to build a remote refocus microscope when imaging samples of varied refractive 
-index.</strong>
+index range 1.33-1.51, which maximizes system performance. This has the <em>additional benefit</em> of keeping 
+excitation light aligned with the remote volume at different sample RI (as is needed for example in a SOLS 
+microscope). <strong>We propose that a dynamic magnification compensator is the correct way to build a remote 
+refocus microscope when imaging samples of varied refractive index.</strong>
 </p>
 <p>
 We find the <strong>immersion-free</strong> configurations particularly attractive for high throughput screening 
