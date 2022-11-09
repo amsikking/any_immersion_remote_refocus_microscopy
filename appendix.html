@@ -67,14 +67,20 @@ design options.
 <h4 id="na_and_resolution">Numerical aperture and resolution</h4>
 <p>
 The numerical aperture (NA) is defined as:
+
 \[ NA = n_i\sin\theta_i \tag{a1} \]
+
 where \( n_i \) is the refractive index of the immersion medium and \( \theta_i \) is the collection half-angle of 
 the objective. In the case of a planar refractive index boundary like a coverslip the NA is conserved via Snell's law:
+
 \[ n_s\sin\theta_s = n_i\sin\theta_i \tag{a2} \]
+
 where \( n_s \) is the refractive index of the sample and \( \theta_s \) is the collection half-angle in sample space. 
 According to the Rayleigh criteria the smallest resolvable feature size \( r_{min} \) is
 then:
+
 \[ r_{min} = 0.61 \frac{\lambda}{NA} \tag{a3}\]
+
 where \( \lambda \) is the wavelength of the collected light
 [<a class="citation" href="https://doi.org/10.1007/978-0-387-45524-2" 
 title="Handbook of Biological Confocal Microscopy, third edition;
@@ -84,16 +90,22 @@ title="Handbook of Biological Confocal Microscopy, third edition;
 <h4 id="f_fov_and_pixels">Focal length, field of view and pixels</h4>
 <p>
 The objective lens focal length \( f \) is found with:
+
 \[ f = \frac{f_{TL}}{M} \tag{a4}\]
+
 where \( f_{TL} \) is the tube lens focal length (200mm for Nikon) and \( M \) is the magnification of the objective. 
 The sample space field of view (FOV) is then assumed to be:
+
 \[ FOV = \frac{FN}{M} \tag{a5}\]
+
 where FN is the field number according to the manufacturer (20mm assumed for Nikon). When choosing an objective it 
-can be useful to estimate the number of Nyquist pixels \( N_{px} \) the lens can deliver across the FOV for 
-specifying a camera using:
+can be useful to estimate the number of Nyquist pixels \( N_{px} \) the lens can deliver across the FOV using:
+
 \[ N_{px} = 2 \frac{FOV}{r_{min}} \tag{a6}\]
-Note: this can also serve as a measure of the <em>quality</em> of the objective, where more pixels usually indicates 
-a more sophisticated lens design (similar in concept to <em>etendue</em>).
+
+<strong>Note:</strong> this can be useful for choosing a camera and also serves as a measure of the <em>quality</em> 
+of the objective, where more pixels usually indicates a more sophisticated lens design (similar in concept to 
+<em>etendue</em>).
 </p>
 
 <h4 id="standard_focus_range">Standard focus range</h4>
@@ -104,11 +116,14 @@ C. Sheppard and C. J. Cogswell; Optik, vol 87(1), p34-38, (1991)">Sheppard 1991<
 equation 18 proposes that in a medium of refractive index \( n_1 \), the maximum acceptable wavefront 
 aberration (Rayleigh criterion) will not be exceeded if the thickness of a slab of dielectric \( t \) and refractive 
 index \( n_2 \) meets the following condition:
+
 \[ t \leq \frac{\lambda n_2^3}{2n_1^2(n_2^2 - n_1^2)\sin^4(\alpha/2)} \tag{a7} \]
+
 where \( \alpha \) is the collection half-angle in the \( n_1 \) space (i.e. the immersion). Originally evaluated for 
 a phase error of \( \pi/2 \), equation \( (1) \) gives negative values for \( n_1 \gt n_2 \). If we allow 
 \( n_1 \gt n_2 \) and a phase error of \( \pm \pi/2 \) then we can rewrite \( (1) \) in a slightly more convenient 
 format to give the maximum depth of standard focus \( z_{sf\_max} \):
+
 \[ z_{sf\_max} = \frac{\lambda}{2\sin^4(\theta_i/2)} \left\lvert 
 \frac{n_s^3}{n_i^2(n_s^2 - n_i^2)} \right\lvert \tag{a8} \]
 </p>
@@ -120,17 +135,21 @@ From
 title="An optical technique for remote focusing in microscopy; 
 E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">
 Botcherby 2007</a>, 
-equation 23 proposes that the Strehl ratio \( S \) of a remote refocus can be modelled by:
+equation 23 proposes that the Strehl ratio \( S \) of a remote refocus can be modeled by:
+
 \[ S = 1 - \frac{4n^2k^2z^4(3 + 16\cos\alpha + \cos2\alpha)\sin^8(\alpha/2)}
 {75f^2(3+8\cos\alpha + \cos2\alpha)} \tag{a9} \]
+
 where \( n \) is the refractive index of the sample, \( k = 2\pi / \lambda \) is the wavenumber, \( z \) is the axial 
 distance from the traditional focal plane, \( f \) is the focal length and \( \alpha \) is the collection half-angle 
 of the objective. If we set \( S = 0.8 \) (the traditional diffraction limit) and rearrange we can estimate the 
 maximum remote refocus depth \( z_{rr\_max} \):
+
 \[ z_{rr\_max} = \pm \frac{1}{2\sin^2(\theta_s/2)}
 \sqrt[4]{\frac{15 \lambda^2 f^2 (3+8\cos\theta_s + \cos2\theta_s)}
 {\pi^2 n_s^2 (3 + 16\cos\theta_s + \cos2\theta_s)}} \tag{a10} \]
-Note: the substitution \( \alpha = \theta_s \) is subtle. In
+
+<strong>Note:</strong> the substitution \( \alpha = \theta_s \) is subtle. In
 <a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" 
 title="An optical technique for remote focusing in microscopy; 
 E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">
@@ -143,11 +162,13 @@ Botcherby 2007</a> at the critical substitution of equation 8 (\( \sin\theta = \
 <p>
 For a microscope with remote refocus optics (e.g. Figure 2) we can now estimate the maximum focus range in the sample 
 \( z_{max} \) as the sum of the standard and remote ranges:
+
 \[ z_{max} \approx z_{sf\_max} + \left\lvert z_{rr\_max} \right\lvert \tag{a11} \]
-Note: the <em>approximately</em> equals sign. The standard focus and remote refocus ranges use different definitions 
-for the diffraction limit, and are approximate models that ignore higher order aberrations. There is also no 
-consideration given to field effects, chromatic aberrations or design and manufacturing imperfections that can be 
-expected in real objective lenses.
+
+<strong>Note:</strong> the <em>approximately</em> equals sign. The standard focus and remote refocus ranges use 
+different definitions for the diffraction limit, and are approximate models that ignore higher order aberrations. 
+There is also no consideration given to field effects, chromatic aberrations or design and manufacturing 
+imperfections that can be expected in real objective lenses.
 </p>
 
 <h3 id="objective_selection">Objective selection</h3>
@@ -158,7 +179,9 @@ title="High NA single-objective light-sheet;
 A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>], 
 as the angular range in the sample \( \theta_s \) decreases, the tilt of the last microscope 
 \( \theta_{tilt} \) increases according to:
+
 \[ \theta_{tilt} = 90 - \theta_s \quad (deg) \tag{a13} \]
+
 Currently the AMS-AGY v2.0 objective
 [<a class="citation" href="https://doi.org/10.1038/s41592-022-01417-2" 
 title="DaXi—high-resolution, large imaging volume and multi-view single-objective light-sheet microscopy; 
@@ -166,8 +189,10 @@ B. Yang, M. Lange, A. Millett-Sikking, X. Zhao, J. Bragantini, S. VijayKumar, M.
 W. Wang, H. Kobayashi, M.N. McCarroll, L.W. Whitehead, R.P. Fiolka, T.B. Kornberg, A.G. York and L.A. Royer; 
 (2022)">Yang 2022</a>]
 has the most extreme tilt range of any SOLS compatible objective, with maximum 
-tilt of 55 degrees. So combining \( (a1) \), \( (a12) \) and \( (a13) \) the minimum acceptable sample space NA is: 
-\[ NA_s \geq 1.33\sin(90 - 55)= 0.76  \tag{a14} \]
+tilt of 55 degrees. So combining \( (a1) \), \( (a2) \) and \( (a13) \) the minimum acceptable sample space NA is: 
+
+\[ NA \geq 1.33\sin(90 - 55)= 0.76  \tag{a14} \]
+
 After applying the lower bound on NA of 0.76, the 'best' objectives for the standard immersions were selected in the 
 following 2 categories:
 </p>
@@ -209,14 +234,14 @@ border:1px solid black; text-align:center; padding:1px; font-size:small;}
 </div>
 </ul>
 <p>
-Note: Speciality objectives in the categories of TIRF and Multi-photon may not perform optimally for remote refocus
-and were avoided.
+<strong>Note:</strong> Speciality objectives in the categories of TIRF and Multi-photon may not perform optimally 
+for RR and were avoided.
 </p>
 
 <h3 id="zoom_lens">Zoom lens</h3>
 <p>
-In our previous remote refocus designs we used static lenses to adjust the magnification between the sample and the 
-remote space according to equation 2
+In our previous RR designs we used static lenses to adjust the magnification between the sample and the remote space 
+according to equation 2
 [<a class="citation" href="https://doi.org/10.5281/zenodo.1146083" 
 title="Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy; 
 A. Millett-Sikking, N.H. Thayer, A. Bohnert and A.G. York; (2018)">Millett-Sikking 2018</a>, 
@@ -258,7 +283,7 @@ optical train (a minimal drawback for the system). However, we consider the smal
 <h4 id="zoom_lens_performance">Performance</h4>
 <p>
 In <a href="#fig_zoom_spot_diagram_all_configs" target="_self">Figure A1</a> we see the spot diagrams as a function 
-of field (centre to edge) and configuration (min to max focal length) across the visible spectrum (450-700nm). We 
+of field (center to edge) and configuration (min to max focal length) across the visible spectrum (450-700nm). We 
 can see that the system is mostly diffraction limited throughout the matrix, with some marginal degradation at the 
 edge of the field for the shorter focal lengths (higher RR magnifications). In the interactive
 <a href="#fig_zoom_optical_performance" target="_self">Figure A2</a> we show detailed views of the performance at the 
@@ -305,12 +330,12 @@ configurations 1 and 8 (i.e. the extremes of the zoom range).
 
 <h4 id="zoom_lens_motion">Motion</h4>
 <p>
-Part of the design challenge in a zoom system is accomodating the motion of elements (or groups of elements). Here we
-adopt relatively large motions of 2 of the 3 lens groups from the PNP design. This has the drawback of being slower
-than small motions, but the benefit of loosening the opto-mechanical tolerances of the system, thereby allowing us to 
-use stock optics and mechanics. In <a href="#fig_zoom_motion" target="_self">Figure A3</a> we see how we
-need to move the lens groups from the 'zero position' with a focal length of 132.5mm to the 'limit position' with a 
-focal length of 150mm. The negative lens (centre element in the design) moves the most by almost 50mm, while the 
+Part of the design challenge in a zoom system is accommodating the motion of elements (or groups of elements). Here 
+we adopt relatively large motions of 2 of the 3 lens groups from the PNP design. This has the drawback of being 
+slower than small motions, but the benefit of loosening the opto-mechanical tolerances of the system, thereby 
+allowing us to use stock optics and mechanics. In <a href="#fig_zoom_motion" target="_self">Figure A3</a> we see how 
+we need to move the lens groups from the 'zero position' with a focal length of 132.5mm to the 'limit position' with 
+a focal length of 150mm. The negative lens (center element in the design) moves the most by almost 50mm, while the 
 positive group near the image move slightly less by around 42mm (the first lens group in the design is static).
 </p>
 
@@ -452,7 +477,7 @@ Some attractive upgrades to the current prototype include:
 </p>
 
 <ul>
-<li>Adding the zoom lens to allow continuos tuning of the remote refocus volume to the sample refractive index 
+<li>Adding the zoom lens to allow continuous tuning of the remote refocus volume to the sample refractive index 
 (which should also keep the light-sheet aligned).</li>
 <li>Swapping O2 from the Nikon 20x0.75 air objective to the 40x0.95 air objective. This gives improved collection 
 from higher NA primary objectives, and the 40x has the correct effective focal length (5mm) to pair with the zoom 
