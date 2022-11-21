@@ -69,14 +69,13 @@ The numerical aperture (NA) is defined as:
 
 \[ NA = n_i\sin\theta_i \tag{a1} \]
 
-where \( n_i \) is the refractive index of the immersion medium and \( \theta_i \) is the collection half-angle of 
-the objective. In the case of a planar refractive index boundary like a coverslip the NA is conserved via Snell's law:
+where \( n_i \) is the refractive index (RI) of the immersion medium and \( \theta_i \) is the collection half-angle 
+of the objective. In the case of a planar RI boundary like a coverslip the NA is conserved via Snell's law:
 
 \[ n_s\sin\theta_s = n_i\sin\theta_i \tag{a2} \]
 
-where \( n_s \) is the refractive index of the sample and \( \theta_s \) is the collection half-angle in sample space. 
-According to the Rayleigh criteria the smallest resolvable feature size \( r_{min} \) is
-then:
+where \( n_s \) is the RI of the sample and \( \theta_s \) is the collection half-angle in sample space. According 
+to the Rayleigh criteria the smallest resolvable feature size \( r_{min} \) is then:
 
 \[ r_{min} = 0.61 \frac{\lambda}{NA} \tag{a3}\]
 
@@ -107,7 +106,7 @@ of the objective, where more pixels usually indicates a more sophisticated lens 
 <em>etendue</em>).
 </p>
 
-<h4 id="standard_focus_range">Standard focus range</h4>
+<h4 id="sf_depth">Standard focus depth</h4>
 <p>
 From <a class="citation" href="https://www.researchgate.net/publication/235927740_Effects_of_aberrating_layers_and_tube_length_on_con_focal_imaging_properties" 
 title="Effects of aberrating layers and tube length on con focal imaging properties; 
@@ -127,7 +126,7 @@ format to give the maximum depth of standard focus \( z_{sf\_max} \):
 \frac{n_s^3}{n_i^2(n_s^2 - n_i^2)} \right\lvert \tag{a8} \]
 </p>
 
-<h4 id="remote_refocus_range">Remote refocus range</h4>
+<h4 id="rr_depth">Remote refocus depth</h4>
 <p>
 From
 <a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" 
@@ -157,14 +156,14 @@ Botcherby 2007</a> at the critical substitution of equation 8 (\( \sin\theta = \
 \( \alpha = \theta_i \). However the substitution is in reference to coordinates in <em>object space</em>.
 </p>
 
-<h4 id="combined_range">Combined range</h4>
+<h4 id="combined_depth">Combined depth</h4>
 <p>
-For a microscope with remote refocus optics (e.g. Figure 2) we can now estimate the maximum focus range in the sample 
-\( z_{max} \) as the sum of the standard and remote ranges:
+For a microscope with remote refocus optics (e.g. Figure 2) we can now estimate the maximum focus depth in the sample 
+\( z_{max} \) as the sum of the standard and remote depths:
 
 \[ z_{max} \approx z_{sf\_max} + \left\lvert z_{rr\_max} \right\lvert \tag{a11} \]
 
-<strong>Note:</strong> the <em>approximately</em> equals sign. The standard focus and remote refocus ranges use 
+<strong>Note:</strong> the <em>approximately</em> equals sign. The standard focus and remote refocus depths use 
 different definitions for the diffraction limit, and are approximate models that ignore higher order aberrations. 
 There is also no consideration given to field effects, chromatic aberrations or design and manufacturing 
 imperfections that can be expected in real objective lenses.
@@ -176,7 +175,7 @@ In a SOLS microscope
 [<a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
 title="High NA single-objective light-sheet; 
 A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>], 
-as the angular range in the sample \( \theta_s \) decreases, the tilt of the last microscope 
+as the half angle in the sample \( \theta_s \) decreases, the tilt of the last microscope 
 \( \theta_{tilt} \) increases according to:
 
 \[ \theta_{tilt} = 90 - \theta_s \quad (deg) \tag{a13} \]
@@ -260,10 +259,10 @@ assume a standard microscope at 40x magnification since this offers many attract
 water, silicone and oil immersion at high NA from various manufacturers). We then assume a 5mm focal length air lens 
 for the second RR objective (often referred to as 'objective 2' or O2). For example the Nikon 40x0.95 air lens 
 (9.5mm back focal plane diameter) is a good high NA option, with a high enough collection cone (~72deg) and pixel 
-count (~2927) for most RR designs. We target a RR magnification that covers the full biological refractive index 
-range (1.33-1.51) by tuning the focal length of TL2 in the range 150-132.5mm (i.e. 30-26.5x for microscope 2). 
-Finally we assume a standard sCMOS field of view (~13.5mm width) and add the additional constraints of needing a 
-constant track length and telecentric image.
+count (~2927) for most RR designs. We target a RR magnification that covers the full biological RI range (1.33-1.51) 
+by tuning the focal length of TL2 in the range 150-132.5mm (i.e. 30-26.5x for microscope 2). Finally we assume a 
+standard sCMOS field of view (~13.5mm width) and add the additional constraints of needing a constant track length 
+and telecentric image.
 </p>
 
 <h4 id="zoom_lens_design">Design</h4>
@@ -476,8 +475,8 @@ Some attractive upgrades to the current prototype include:
 </p>
 
 <ul>
-<li>Adding the zoom lens to allow continuous tuning of the remote refocus volume to the sample refractive index 
-(which we expect to keep the light-sheet in better alignment).</li>
+<li>Adding the zoom lens to allow continuous tuning of the remote refocus volume to the sample RI (which we expect 
+to keep the light-sheet in better alignment).</li>
 <li>Swapping O2 from the Nikon 20x0.75 air objective to the 40x0.95 air objective. This gives improved collection 
 from higher NA primary objectives, and the 40x has the correct effective focal length (5mm) to pair with the zoom 
 assembly.</li>
