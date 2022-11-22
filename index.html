@@ -112,14 +112,14 @@ the sample, where we use the 'focus' or a 'focusing' technique to change the dep
 Here we describe two different focus methods that we refer to as "<a href="#sf_theory" target="_self">standard focus</a>" 
 and "<a href="#rr_theory" target="_self">remote refocus</a>" (RR), and discuss how they are typically restricted to a 
 particular sample refractive index (RI). We then show a new way to use RR optics with any sample RI, and how to use 
-this method with different immersion objectives to make an "<a href="#any_immersion_rr" target="_self">any 
-immersion</a>" microscope. In the <a href="#simulations" target="_self">simulations</a> section, we model the standard 
-focus depth and show how we can extend the depth with RR optics, including a 
-<a href="#dynamic_rr" target="_self">dynamic RR design</a>. In the <a href="#data" target="_self">data</a> section, we 
-demonstrate the power of the 'any immersion' concept by imaging deep into a watery sample with a high 
-<a href="./appendix.html#na_and_resolution">numerical aperture</a> (NA) air objective that would normally give very 
-blurry images. For the <a href="#discussion" target="_self">discussion</a> section, we consider an attractive 
-microscope design and review the main benefits of the technology.
+RR with different objectives to make an "<a href="#any_immersion_rr" target="_self">any immersion</a>" microscope. 
+In the <a href="#simulations" target="_self">simulations</a> section, we model the standard focus depth and show how 
+we can extend the depth with RR optics, including a <a href="#dynamic_rr" target="_self">dynamic RR design</a>. In 
+the <a href="#data" target="_self">data</a> section, we demonstrate the power of the 'any immersion' concept by 
+imaging deep into a watery sample with a high <a href="./appendix.html#na_and_resolution">numerical aperture</a> 
+(NA) air objective that would normally give very blurry images. For the 
+<a href="#discussion" target="_self">discussion</a> section, we consider an attractive microscope design and review 
+the main benefits of the technology.
 </p>
 
 <p>
@@ -173,7 +173,7 @@ We can think of the space between the front of an objective and the image plane 
 in the lens. For a coverslip corrected objective, this includes a coverslip of known specification (e.g. 170&mu;m of 
 glass) and an immersion medium of known type (e.g. air, water or oil). In particular the thickness and RI of the 
 coverslip and immersion medium are important, and deviating from the intended values can produce severe aberrations, 
-especially at high (NA). A typical way to avoid aberrations is to place the sample directly onto the correct 
+especially at high NA. A typical way to avoid aberrations is to place the sample directly onto the correct 
 coverslip, and then image just above the coverslip using the correct immersion medium. This ensures the final 
 elements of the objective are arranged as intended, but fixes the focal plane at 'depth zero' (i.e. just above the 
 coverslip). So if we want to image deeper into the sample, we need some way of adjusting the focal plane without 
@@ -328,7 +328,7 @@ volume if we set the magnification for the <em>sample</em>:
 \[ M_{RR} = \frac{n_s}{n_2} \tag{5} \]
 
 This is a powerful concept. For example, we can build a microscope with RR optics configured for watery samples 
-(equation 5 with \(n_s = 1.33\)) and then use different types of immersion objective on the same microscope 
+(equation 5, \(n_s\) = 1.33) and then use different types of immersion objective for this sample RI
 (<a href="#fig_rr_water_air_oil" target="_self">Figure 4</a>). For each objective we can use standard focus to find 
 an aberration-free image plane, and then use the RR optics to access aberration-free 3D volumes, with different 
 benefits in each configuration. For example, the water immersion objective has the <strong>maximum depth</strong> 
@@ -374,7 +374,7 @@ In the previous sections we explored the mechanisms and limitations of standard 
 proposed a new way to use them together. In particular, we discussed how we can use standard focus to select an 
 aberration-free image plane in a sample with any RI, and that we can do this using an immersion objective of any 
 kind. We then discussed how we can use RR optics to access different focal planes for any sample RI (equation 5). 
-Here, we can use these insights to consider new microscope design options, where we combine standard focus and RR 
+Here, we use these insights to consider new microscope design options, where we combine standard focus and RR 
 optics to produce different modes of operation:
 </p>
 
@@ -483,7 +483,7 @@ continuously across the range of the sample RI (shown here). All of the configur
 depth provided by the RR optics. In particular, in the high NA category the lower bound on the 100x1.45 oil lens has 
 now jumped from 3&mu;m to 35&mu;m, converting it into an attractive option for many applications. In practice, this 
 delivers deeper imaging at <strong>maximum NA</strong> for any sample RI under 1.45. Most apparent in the high NA 
-category is the large increase in depth now available to the 40x0.95 air objective, offering deeper 
+category is the large increase in depth now available to the 40x0.95 air objective, offering 
 <strong>immersion-free</strong> imaging up to 151&mu;m!
 </p>
 
@@ -518,18 +518,18 @@ oil=1.51).
 <h4 id="dynamic_rr">Dynamic remote refocus</h4>
 <p>
 In the theory section for RR, we discuss how the magnification should be set for the sample RI, and not the immersion
-medium (equation 5). Previously, we used static optical configurations to set the RR magnification 
+medium (equation 5). Previously, we used static optical configurations to set the RR magnification for the immersion
+medium RI (equation 3), with the hope that the sample RI would match
 [<a class="citation" href="https://doi.org/10.5281/zenodo.1146083" 
 title="Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy; 
 A. Millett-Sikking, N.H. Thayer, A. Bohnert and A.G. York; (2018)">Millett-Sikking 2018</a>, 
 <a class="citation" href="https://doi.org/10.5281/zenodo.3244420" 
 title="High NA single-objective light-sheet; 
-A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>], 
-with the hope that the sample would not deviate much from the intended RI.
+A. Millett-Sikking, K.M. Dean, R. Fiolka, A. Fardad, L. Whitehead and A.G. York; (2019)">Millett-Sikking 2019</a>].
 </p>
 <p>
-Here we present a dynamic zoom lens to enable fast RR magnification tuning for the RI range 1.33-1.51, which 
-maximizes performance for a diverse set of biological samples 
+Here we present a dynamic zoom lens to enable fast RR magnification tuning for the RI range 1.33-1.51. This allows 
+us to continuously apply equation 5, and maximize RR performance for a diverse set of biological samples 
 (<a href="#fig_zoom_optics" target="_self">Figure 7</a>). Our design uses inexpensive stock parts, maintains 
 constant track length and telecentricity, and is diffraction limited across the visible spectrum and standard sCMOS 
 field of view (<a href="./appendix.html#zoom_lens">see appendix for details</a>). Specifically this module is 
@@ -570,8 +570,8 @@ We use the 40x1.15 water objective as the 'benchmark' for a typical optical conf
 medium and sample have the same RI. In this mode the volumetric point spread function (PSF) is insensitive to 
 standard focus, so we can move the primary objective up and down to access different depths 
 (<a href="#fig_water_objective_psf_vs_focus" target="_self">Figure 8</a>). The main benefits of this setup compared
-to the air objective are an increased NA and total focus depth (standard + RR), in exchange for the inconvenience of 
-the water immersion.
+to the air objective are an increased NA and total focus depth (standard focus + RR), in exchange for the 
+inconvenience of the water immersion.
 </p>
 
 <figure id="fig_water_objective_psf_vs_focus">
@@ -582,7 +582,7 @@ This animation shows the volumetric point spread function of a Nikon 40x1.15 wat
 function of standard focus (z). The fluorescent beads were prepared in a watery gel according to 
 <a href="https://github.com/amsikking/fluorescent_beads_in_agarose">this protocol</a>. Since the sample
 RI <em>matches</em> the water immersion the PSF is insensitive to standard focus, allowing an increased depth of 
-focus (standard + remote) when using the microscope in this modality. <strong>Note:</strong> each frame of the 
+focus (standard focus + RR) when using the microscope in this modality. <strong>Note:</strong> each frame of the 
 animation shows the max projections of the entire volume (~330x355x125)&mu;m<sup>3</sup> in traditional XY, XZ 
 and YZ coordinates.
 </figcaption>
@@ -682,11 +682,12 @@ objectives offer larger fields of view (~500&mu;m) and pixel counts (&gt; ~2927)
 option for a standard microscope).
 </p>
 <p>
-We conclude that RR optics should be configured for the sample RI, and not the immersion medium of the objective. We 
-acknowledge that for the same or similar samples this may be achieved with static optical configurations. However, we 
-present a dynamic zoom lens to quickly tune the RR optics for the refractive index range 1.33-1.51, which maximizes 
-performance for a diverse set of biological samples. This has the additional benefit of avoiding the axial 
-'stretching' (\(n_i \gt n_s\)) and 'squashing' (\(n_i \lt n_s\)) distortions from focusing with mismatched RI
+We conclude that RR optics should be configured for the sample RI, and not the immersion medium of the objective 
+(equation 5). We acknowledge that for the same or similar samples this may be achieved with static optical 
+configurations. However, we present a dynamic zoom lens to quickly tune the RR optics for the refractive index range 
+1.33-1.51, which maximizes performance for a diverse set of biological samples. This has the additional benefit of 
+avoiding the axial 'stretching' (\(n_i \gt n_s\)) and 'squashing' (\(n_i \lt n_s\)) distortions from focusing with 
+mismatched RI
 [<a class="citation" href="https://doi.org/10.1038/s41596-020-0360-2" 
 title="Tutorial: avoiding and correcting sample-induced spherical aberration artifacts in 3D fluorescence microscopy; 
 E.E. Diel, J.W. Lichtman and D.S. Richardson; (2020)">Diel 2020</a>]. 
