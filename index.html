@@ -114,12 +114,12 @@ Here we discuss the mechanisms of two different focus methods we refer to as
 (RR), and how they are typically restricted to a particular sample refractive index (RI). We then show 
 a new way to use RR optics with any sample RI, and how to use this method with different types of immersion 
 objective to make an "<a href="#any_immersion_rr" target="_self">any immersion</a>" microscope. In the 
-<a href="#simulations" target="_self">simulations</a> section we model the standard focus depth, and show how we can
+<a href="#simulations" target="_self">simulations</a> section, we model the standard focus depth and show how we can
 extend the depth with RR optics, including a <a href="#dynamic_rr" target="_self">dynamic RR design</a>. In the 
-<a href="#data" target="_self">data</a> section we demonstrate the power of the 'any immersion' concept by imaging 
+<a href="#data" target="_self">data</a> section, we demonstrate the power of the 'any immersion' concept by imaging 
 deep into a watery sample with a high <a href="./appendix.html#na_and_resolution">numerical aperture</a> (NA) air 
 objective that would normally give very blurry images. For the <a href="#discussion" target="_self">discussion</a> 
-section we consider an attractive microscope design and review the main benefits of the technology.
+section, we consider an attractive microscope design and review the main benefits of the technology.
 </p>
 
 <p>
@@ -159,7 +159,7 @@ To understand (and avoid) this effect we can consider the focusing process in mo
 <strong>Figure 1: Setup showing a sample imaged by a coverslip corrected objective.</strong> 
 This cartoon shows a watery 3D sample (like a cell in media) being imaged by a standard microscope 
 (<strong>objective + mirror + tube lens</strong>). The <strong>image</strong> (which corresponds to the 
-<strong>image plane</strong>) is formed at the <strong>camera</strong> and relayed to the cartoon 
+<strong>image plane</strong>) is formed at the <strong>camera</strong> and displayed on the cartoon 
 <strong>screen</strong> (via the <strong>cable</strong>). The <strong>sample</strong> has a homogenous refractive 
 index (RI) \(n_s\), the <strong>coverslip</strong> is correctly specified (the base of the <strong>dish</strong>) 
 and the <strong>immersion</strong> medium has a homogenous RI \(n_i\). <strong>WD</strong> is the 'working
@@ -207,7 +207,7 @@ to avoid aberrations</strong>:
 <figcaption>
 <strong>Figure 2: Standard focus into a watery sample with water, air and oil immersion.</strong> 
 This cartoon shows a watery 3D sample (like a cell in media) being imaged at different depths by a standard 
-microscope (objective + tube lens). The image is formed at the camera and relayed to the cartoon screen, which 
+microscope (objective + tube lens). The image is formed at the camera and displayed on the cartoon screen, which 
 shows image planes at different depths in the sample as the objective moves up and down.
 <strong>Animation 1/3</strong> shows a water immersion objective that is refractive index (RI) <em>matched</em> to 
 the sample, giving good images at depth.
@@ -351,7 +351,7 @@ This cartoon shows a watery 3D sample (like a cell in media) being imaged at dif
 (standard microscope + tube lens + objective) are configured to produce an aberration-free 3D copy of the sample 
 in the remote space, which is then re-imaged by the 3rd microscope (objective + tube lens).
 <strong>Note: the RR optics are set for a watery sample, regardless of the immersion used by the primary objective.</strong> 
-The final image is formed at the camera and relayed to the cartoon screen, which shows image planes at different 
+The final image is formed at the camera and displayed on the cartoon screen, which shows image planes at different 
 depths in the sample as the objective in the 3rd microscope moves back and forth.
 <strong>Animation 1/3</strong> shows a water immersion objective that is refractive index (RI) <em>matched</em> to 
 the sample. In this configuration the standard focus and RR both have <strong>maximum depth</strong>, although only 
@@ -560,8 +560,8 @@ platform to directly <strong>compare a Nikon 40x1.15 water objective against a N
 deep into a watery sample</strong> 
 (<a href="https://github.com/amsikking/fluorescent_beads_in_agarose">fluorescent beads in agarose</a>).
 We picked this example since the RI mismatch between air and water is very high, which greatly reduces the usable
-depth of standard focus. However, the RR is unaffected by the RI mismatch, and the RR depth is substantial, 
-which really highlights the benefit of this new regime.
+depth of standard focus. However, the RR is unaffected by the RI mismatch, and the RR depth is substantial in this
+configuration, which really highlights the benefit of this new regime.
 </p>
 
 <h4 id="water_objective_data">Water objective</h4>
@@ -595,7 +595,7 @@ and YZ coordinates.
 and get good volumetric PSF deep into the watery gel!</strong> Because the objectives have the same effective 
 <a href="./appendix.html#f_fov_and_pixels">focal length</a> they conserve the RR magnification (equation 5). 
 Normally the depth of standard focus is limited to about ~6&mu;m 
-(<a href="#fig_sf_depth" target="_self">Figure 5</a>), but here we can clearly image &gt; 50&mu;m 
+(<a href="#fig_sf_depth" target="_self">Figure 5</a>), but here we can clearly image &gt; 50&mu;m with the RR optics
 (<a href="#fig_air_objective_psf_vs_focus" target="_self">Figure 9</a>). Compared to the water objective, this mode 
 has the benefit of being immersion-free, with the drawback of slightly lower NA and a greatly reduced standard focus 
 depth.
@@ -626,8 +626,11 @@ values in the range <strong>(425-582)nm laterally and (1.38&pm;0.11)&mu;m axiall
 <a href="figures/data/water_objective/beads">(2577 beads used for statistics)</a>. For the 
 <strong>air objective PSF</strong> we found FWHM values in the range <strong>(422-550)nm laterally and 
 (2.08&pm;0.07)&mu;m axially</strong> 
-<a href="figures/data/air_objective/beads">(2716 beads)</a>. As expected the water objective has notably improved 
-axial PSF due to the higher NA. The higher NA should also show in a reduced radial PSF but the 
+<a href="figures/data/air_objective/beads">(2716 beads)</a>.
+</p>
+<p>
+As expected the water objective has notably improved axial PSF due to the higher NA. The higher NA should also show 
+in a reduced radial PSF but the 
 <a href="./appendix.html#large_fov_sols_current">current instrument prototype</a> was originally optimized for 
 the air objective so there is some vignetting at objective 2 and the pixel size (~220nm) is too large 
 (<a href="./appendix.html#large_fov_sols_improved">addressed here with an improved design</a>). Overall 
@@ -679,7 +682,7 @@ objectives offer larger fields of view (~500&mu;m) and pixel counts (&gt; ~2927)
 option for a standard microscope).
 </p>
 <p>
-We have shown that RR optics should be configured for the sample RI, and not the immersion medium of the objective. We 
+We conclude that RR optics should be configured for the sample RI, and not the immersion medium of the objective. We 
 acknowledge that for the same or similar samples this may be achieved with static optical configurations. However, we 
 present a dynamic zoom lens to quickly tune the RR optics for the biological refractive index range 1.33-1.51, which 
 maximizes performance for a diverse set of samples. This has the additional benefit of avoiding the axial 
