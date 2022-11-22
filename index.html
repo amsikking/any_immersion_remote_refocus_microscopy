@@ -90,7 +90,7 @@ automated microscopy. Similarly, we can extend the depth of a high NA oil object
 We can apply this method to use different objectives on the same system, with maximum depth, immersion-free and 
 maximum NA modalities. In addition, we present a dynamic zoom lens to enable fast RI tuning in the range 1.33-1.51, 
 which maximizes performance for a diverse set of biological samples. By combining different objectives with dynamic 
-remote refocus optics we can make an 'any immersion' microscope with a boosted focal depth.
+remote refocus optics we can make an 'any immersion' microscope with a boosted focal range.
 </p>
 
 <h4>Intended audience</h4>
@@ -109,17 +109,17 @@ processing to make a volume that we can explore. We can think of each 2D image a
 the sample, where we use the 'focus' or a 'focusing' technique to change the depth.
 </p>
 <p>
-Here we discuss the mechanisms of two different focus methods we refer to as 
-"<a href="#sf_theory" target="_self">standard focus</a>" and "<a href="#rr_theory" target="_self">remote refocus</a>" 
-(RR), and how they are typically restricted to a particular sample refractive index (RI). We then show 
-a new way to use RR optics with any sample RI, and how to use this method with different types of immersion 
-objective to make an "<a href="#any_immersion_rr" target="_self">any immersion</a>" microscope. In the 
-<a href="#simulations" target="_self">simulations</a> section, we model the standard focus depth and show how we can
-extend the depth with RR optics, including a <a href="#dynamic_rr" target="_self">dynamic RR design</a>. In the 
-<a href="#data" target="_self">data</a> section, we demonstrate the power of the 'any immersion' concept by imaging 
-deep into a watery sample with a high <a href="./appendix.html#na_and_resolution">numerical aperture</a> (NA) air 
-objective that would normally give very blurry images. For the <a href="#discussion" target="_self">discussion</a> 
-section, we consider an attractive microscope design and review the main benefits of the technology.
+Here we describe two different focus methods that we refer to as "<a href="#sf_theory" target="_self">standard focus</a>" 
+and "<a href="#rr_theory" target="_self">remote refocus</a>" (RR), and discuss how they are typically restricted to a 
+particular sample refractive index (RI). We then show a new way to use RR optics with any sample RI, and how to use 
+this method with different immersion objectives to make an "<a href="#any_immersion_rr" target="_self">any 
+immersion</a>" microscope. In the <a href="#simulations" target="_self">simulations</a> section, we model the standard 
+focus depth and show how we can extend the depth with RR optics, including a 
+<a href="#dynamic_rr" target="_self">dynamic RR design</a>. In the <a href="#data" target="_self">data</a> section, we 
+demonstrate the power of the 'any immersion' concept by imaging deep into a watery sample with a high 
+<a href="./appendix.html#na_and_resolution">numerical aperture</a> (NA) air objective that would normally give very 
+blurry images. For the <a href="#discussion" target="_self">discussion</a> section, we consider an attractive 
+microscope design and review the main benefits of the technology.
 </p>
 
 <p>
@@ -195,8 +195,8 @@ so it will image as designed and standard focus will work as intended
 (<a href="#fig_sf_water_air_oil" target="_self">Figure 2, 1/3</a>).
 </p>
 <p> 
-<strong>So, for standard focus we must match the sample refractive index to the immersion medium refractive index 
-to avoid aberrations</strong>:
+<strong>So in summary, for standard focus we must match the sample refractive index to the immersion medium refractive 
+index to avoid aberrations</strong>:
 
 \[ n_i = n_s \tag{1} \]
 
@@ -314,8 +314,8 @@ and to set the RR magnification for the immersion medium:
 \[ M_{RR} = \frac{n_i}{n_2} \tag{3} \]
 
 However, there are many situations where equations 1 and 3 do not apply, for example, when using an air objective 
-with a watery sample, or when the sample RI differs from typical immersion options. Here we explore the case where 
-the sample RI and immersion medium RI are not matched:
+with a watery sample, or when the sample RI differs from the RI of the typical immersion mediums. Here we explore the 
+case where the sample RI and immersion medium RI are not matched:
 
 \[ n_i \neq n_s \tag{4} \]
 
@@ -409,12 +409,12 @@ aberration-free volumes that have traditionally been unavailable.
 <p>
 We can combine the above modes on the same instrument, with maximum depth, immersion-free and maximum NA modalities 
 for any sample RI. <strong>So, by combining different objectives with dynamic remote refocus optics we can make an 
-'any immersion' microscope with a boosted focal depth.</strong>
+'any immersion' microscope with a boosted focal range.</strong>
 </p>
 
 <h3 id="simulations">Simulations</h3>
 <p>
-To evaluate the deeper imaging potential of a remote refocus microscope 
+To evaluate the deeper imaging potential of a remote refocus (RR) microscope 
 (<a href="#fig_rr_setup" target="_self">Figure 3</a>) compared to a standard setup 
 (<a href="#fig_standard_setup" target="_self">Figure 1</a>), we take a practical approach and model how a series of 
 commercially available objectives compare in each configuration. For the sake of simplicity, we limit our search to a
@@ -474,7 +474,7 @@ oil=1.51).
 </figure>
 <p></p>
 
-<h4 id="sf_and_rr_simulations">Standard focus with remote refocus depth</h4>
+<h4 id="sf_and_rr_simulations">Standard focus and remote refocus depth</h4>
 <p>
 In <a href="#fig_sf_and_rr_depth" target="_self">Figure 6</a> we present the combined depth of a standard focus 
 with RR optics according to <a href="./appendix.html#combined_depth">equation a11</a>. In this setup, the primary 
@@ -684,8 +684,8 @@ option for a standard microscope).
 <p>
 We conclude that RR optics should be configured for the sample RI, and not the immersion medium of the objective. We 
 acknowledge that for the same or similar samples this may be achieved with static optical configurations. However, we 
-present a dynamic zoom lens to quickly tune the RR optics for the biological refractive index range 1.33-1.51, which 
-maximizes performance for a diverse set of samples. This has the additional benefit of avoiding the axial 
+present a dynamic zoom lens to quickly tune the RR optics for the refractive index range 1.33-1.51, which maximizes 
+performance for a diverse set of biological samples. This has the additional benefit of avoiding the axial 
 'stretching' (\(n_i \gt n_s\)) and 'squashing' (\(n_i \lt n_s\)) distortions from focusing with mismatched RI
 [<a class="citation" href="https://doi.org/10.1038/s41596-020-0360-2" 
 title="Tutorial: avoiding and correcting sample-induced spherical aberration artifacts in 3D fluorescence microscopy; 
