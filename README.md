@@ -1,6 +1,6 @@
 # Any immersion remote refocus (AIRR) microscopy
 
-<a href="https://doi.org/10.5281/zenodo.7425650"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7425650.svg" alt="DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.7425649"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7425649.svg" alt="DOI"></a>
 
 A scientific publication that describes a new approach for any immersion remote refocus (AIRR) microscopy. This repository 
 hosts everything you need to reproduce our results. Read the publication here:
