@@ -33,7 +33,7 @@ attribution is appreciated. Thanks, broccolini!
 		  href="./any_immersion_remote_refocus_microscopy_appendix.pdf">Download PDF</a></li>
         </ul>
         <p class="header">This project is maintained by 
-		<a class="header name" href="https://github.com/amsikking">amsikking</a> in the 
+		<a class="header name" href="https://amsikking.github.io/">amsikking</a> in the 
 		<a class="header name" href="https://andrewgyork.github.io/">York lab</a>, and was funded by 
 		<a class="header name" href="https://www.calicolabs.com/">Calico Life Sciences LLC</a></p>
       </header>
@@ -285,8 +285,9 @@ of field (center to edge) and configuration (min to max focal length) across the
 can see that the system is mostly diffraction limited throughout the matrix, with some marginal degradation at the 
 edge of the field for the shorter focal lengths (higher RR magnifications). In the interactive
 <a href="#fig_zoom_optical_performance" target="_self">Figure A2</a> we show detailed views of the performance at the 
-extremes of the range with configurations 1 and 8 (i.e. magnifications of 1.33 and 1.51). See the zoom lens 
-<a href="figures/zoom_lens/optics/" target="_self">'optics'</a> folder for more details (including Zemax files).
+extremes of the range with configurations 1 and 8 (i.e. magnifications of 1.33 and 1.51). See
+<a href="figures/zoom_lens/optics/zoom_lens.zip" target="_self">zoom_lens.zip</a> for more details (including Zemax 
+files).
 </p>
 
 <figure id="fig_zoom_spot_diagram_all_configs">
@@ -391,9 +392,11 @@ relative motions is acceptable. The solution we present combines the zoom optics
 a dichroic and an unhampered image plane. The DDS050 stages have a max speed of 500mm/s so we can expect a responsive
 zoom experience for tuning the magnification to different sample types.
 See the included 
-<a href="figures/zoom_lens/mechanics/Zoom_lens_132.5-150mm.pdf" target="_self">Zoom_lens_132.5-150mm.pdf</a> 
-for a high quality reproduction, or the <a href="./figures/zoom_lens/mechanics/" target="_self">'mechanics'</a> 
-folder for more details (including CAD files).
+<a href="figures/zoom_lens/mechanics/zoom_lens_132.5-150mm.pdf" target="_self">zoom_lens_132.5-150mm.pdf</a> 
+for a high quality reproduction of the 2D drawings, or 3D CAD in 
+<a href="./figures/zoom_lens/mechanics/zoom_lens_132.5-150mm.EASM" target="_self">eDrawings</a>,
+<a href="./figures/zoom_lens/mechanics/zoom_lens_132.5-150mm.SLDPRT" target="_self">Solidworks</a> or 
+<a href="./figures/zoom_lens/mechanics/STEP.zip" target="_self">.STEP</a> format.
 </p>
 
 <figure id="fig_zoom_mechanics">
@@ -459,14 +462,14 @@ border:1px solid black; text-align:center; padding:1px; font-size:small;}
 
 <h4 id="large_fov_sols_data">Data</h4>
 <p>
-The Python scripts that were used to run the microscope and process the data are included in the 
-<a href="figures/data" target="_self">data folder</a>. The microscope was aligned on a best effort basis, with
-an overexpanded Gaussian beam for the light-sheet input (wasteful but gave uniform illumination). The light-sheet 
-was generated with a 1mm slit aperture just before the cylindrical lens which was mapped onto the O2 back focal 
-plane with a 1:1 relay (so about 0.66mm at the O1 BFP in this configuration). The PSF data was processed with
-the same method as <a href="https://github.com/amsikking/SOLS_psf_data">here</a> (which includes sample data). To
-avoid bloat the raw data (~500GB) is not included here so the publication can be readily stored and circulated 
-offline.
+The Python scripts that were used to run the microscope and process the data are included in the 'data' folder
+<a href="https://github.com/amsikking/any_immersion_remote_refocus_microscopy/zipball/master">(download full 
+repository)</a>. The microscope was aligned on a best effort basis, with an overexpanded Gaussian beam for the 
+light-sheet input (wasteful but gave uniform illumination). The light-sheet was generated with a 1mm slit aperture 
+just before the cylindrical lens which was mapped onto the O2 back focal plane with a 1:1 relay (so about 0.66mm at 
+the O1 BFP in this configuration). The PSF data was processed with the same method as 
+<a href="https://github.com/amsikking/SOLS_psf_data">here</a> (which includes sample data). To avoid bloat the raw 
+data (~500GB) is not included here so the publication can be readily stored and circulated offline.
 </p>
 
 <h4 id="large_fov_sols_improved">Improved configuration</h4>
