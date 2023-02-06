@@ -26,7 +26,7 @@ convert_command_1 = [
     '-f', 'image2',                         # force file format to 'image2'
     '-start_number', str(start_frame),      # start frame
     '-i', os.path.join(directory,
-                       'Zoom_lens_132.5-150mm_sheet_%d.png'), # input images
+                       'zoom_lens_132.5-150mm_sheet_%d.png'), # input images
     '-vframes', str(end_frame-start_frame), # number of frames
     '-vf', filters + ",palettegen",         # generate palette with filter
      palette]                               # output palette
@@ -37,7 +37,7 @@ convert_command_2 = [
     '-framerate', '1',                      # adjust framerate
     '-start_number', str(start_frame),
     '-i', os.path.join(directory,
-                       'Zoom_lens_132.5-150mm_sheet_%d.png'),
+                       'zoom_lens_132.5-150mm_sheet_%d.png'),
     '-i', palette,
     '-vframes', str(end_frame-start_frame),      
     '-lavfi', filters + " [x]; [x][1:v] paletteuse",
