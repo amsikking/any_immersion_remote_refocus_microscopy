@@ -46,3 +46,13 @@ function update_figure_A4() {
   var img = document.getElementById("fig_A4_png");
   img.src = filename;
 }
+
+function update_figure_A5() {
+  var number = document.getElementById("figure_A5_choice").value;
+  if ((number === "1")){
+  var filename = "./figures/zoom_lens/testing/FFP_speckle.mp4";}
+  if ((number === "2")){
+  var filename = "./figures/zoom_lens/testing/BFP_speckle.mp4";}
+  var img = document.getElementById("fig_A5_mp4");
+  img.src = filename;
+}
