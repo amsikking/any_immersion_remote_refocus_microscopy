@@ -428,6 +428,112 @@ bill of materials, lens assembly, zoom configuration and alignment.
 </figure>
 <p></p>
 
+<h4 id="zoom_lens_alignment">Alignment</h4>
+<p>
+The alignment of the zoom lens can be tricky, but with patients and good practice it can be done. For an experienced
+builder a morning or afternoon should be enough time. Here are some pointers:
+</p>
+<ul>
+<li>Setup a low power (~1mW) collimated laser beam with an adjustable diameter from ~1mm to ~10mm. A green 
+laser beam like 532nm is preferred, since it has a central wavelength in the visible spectrum and appears bright to 
+the human eye. Adjust the beam so it's horizontal to the optical table. Use the ~1mm beam for checking beam 
+deviation and back reflections when aligning lenses to the laser beam. Use the ~10mm beam for checking the position
+of the focal planes.
+</li>
+<li>From the fully assembled 'PNP' zoom lens, remove the positive (P) lens groups, leaving only the negative (N) 
+lens on the DDS100 motorized stage. Now iteratively adjust the 'XY' and 'tip/tilt' of the negative lens until the 
+back reflections from the laser are centered on the ~1mm aperture. The back reflections should be symmetric over the 
+full range of the zoom lens (~100mm here).
+</li>
+<li>
+Using a separate mount, align the positive lens groups to the ~1mm laser beam and check the back reflections. 
+Because the positive groups consist of 2 separate achromats in a tube, it's possible for them to be poorly set and 
+not share the same optical axis. This will show in the back reflections where no combination of 'XY' and 'tip/tilt' 
+adjustment gives a clean and symmetric reflection. In this case the lenses need to be 're-seated' in the lens tubes. 
+Loosening the lens retaining ring and giving a gentle shake of the lens tube in a vertical position seems to work. 
+Some repetition may be needed.
+</li>
+<li>
+Now add the positive lens groups to the zoom lens assembly one at a time. For each lens group addition, repeat the 
+iterative 'XY' and 'tip/tilt' alignment, making sure the back reflection is clean over the full range of the zoom
+(~50mm here).
+</li>
+</ul>
+
+<h4 id="zoom_lens_control">Control</h4>
+<p>
+Here's <a href="figures/zoom_lens/mechanics/zoom_lens.py" target="_self">an example</a> script for changing the focal
+length of the zoom lens across the full range (132.5-150mm). Before attempting to run this script, make sure the 
+individual device adaptors for the <a href="https://github.com/amsikking/thorlabs_DDS050">DDS050</a> and
+<a href="https://github.com/amsikking/thorlabs_DDS100">DDS100</a> motorized stages are working, that the mechanical 
+assembly is correct and the start positions of the stages are appropriate for the homing routine.
+</p>
+
+<h4 id="zoom_lens_testing">Testing</h4>
+<p>
+It's worth verifying the performance of the zoom lens before incorporating it into a system. According to the
+optical design, the 'Z' position of the front focal plane (FFP) and back focal plane (BFP) should be stable over the 
+full range of the zoom. This can be tested in practice by observing a maximal 'speckle' pattern from some aluminum 
+foil or a glass diffuser placed in the focus of the zoom lens
+(<a href="#fig_zoom_speckle_test" target="_self">Figure A5</a>). This testing found the FFP and BFP tolerance to be
+better than +-100&mu;m 
+(<a href="figures/zoom_lens/testing/zoom_lens_speckle_data.py" target="_self">see script and data here</a>).
+</p>
+
+<figure id="fig_zoom_speckle_test">
+<video controls autoplay loop muted style="max-height:85%; max-width:100%;" id="fig_A5_mp4"
+poster="figures/zoom_lens/testing/speckle.png">
+ <source src="figures/zoom_lens/testing/FFP_speckle.mp4" type="video/mp4">
+ Your browser doesn't support HTML5 MP4 video.`
+</video>
+<table class="figure_controls">
+	<tr>
+	<td>Screen showing:</td>
+	<td><select id="figure_A5_choice" onchange="update_figure_A5()">
+			<option value="1" selected="selected">front focal plane (FFP)</option>  
+			<option value="2">back focal plane (BFP)</option>
+	</select></td>
+	</tr>
+</table>
+<figcaption><strong>Figure A5: Speckle testing.</strong> 
+This interactive figure shows the maximal speckle pattern from the focus of the zoom lens on a Thorlabs DG10-1500-MD
+glass diffuser as it cycles through the 8 Zemax configurations in the range 132.5-150mm. A collimated 532nm laser 
+with a ~10mm diameter was used as the input beam. The figure can be toggled between the front focal plane (FFP) and 
+back focal plane (BFP) orientations.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+Alternatively the focused laser spot from the ~10mm diameter beam can be imaged directly with a camera to confirm 
+it's XY and Z location as the zoom lens is adjusted over the full range
+(<a href="#fig_zoom_camera_test" target="_self">Figure A6</a>). Here this testing was done by sweeping a small 
+camera through the focus for each of the 8 Zemax configurations 
+(<a href="figures/zoom_lens/testing/zoom_lens_z_stack.py" target="_self">see acquisition script here</a>). This 
+testing also found the maximum FFP and BFP deviations to be less than +-100&mu;m, and XY deviations in spot position 
+to be less than ~40&mu;m. Better results may be possible with more thorough alignment. Download 
+<a href="figures/zoom_lens/testing/FFP_data.zip" target="_self">FFP_data.zip</a> and
+<a href="figures/zoom_lens/testing/BFP_data.zip" target="_self">BFP_data.zip</a> to see the data and run the 
+scripts that estimate the focus position.
+</p>
+
+<figure id="fig_zoom_camera_test">
+<img src="figures/zoom_lens/testing/zoom_lens_camera_test.jpg" alt="Figure A6" id="fig_A6_jpg" style="width:100%;">
+<figcaption>
+<strong>Figure A6: Camera testing.</strong> 
+A photo of the camera based testing for the zoom lens. For each of the 8 Zemax configurations the camera was moved
+axially through the focus of the beam using a motorized stage. Images of the beam were captured at 25&mu;m intervals.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+If we assume a 40x magnification for the base microscope then a 40&mu;m XY deviation in the image plane corresponds to
+a ~1&mu;m XY shift in the sample (40&mu;m/40), and a 100&mu;m Z deviation in the focal plane to a ~60nm Z shift in 
+the sample (100&mu;m/40^2). Note that the maximum numerical aperture for the zoom lens is ~0.38 (5/132.5), and so 
+the +-100&mu;m result is within the traditional depth of field of ~370&mu;m (0.532/0.38^2).
+</p>
+
 <h3 id="large_fov_sols">Large FOV SOLS</h3>
 <h4 id="large_fov_sols_current">Current prototype</h4>
 <p>
