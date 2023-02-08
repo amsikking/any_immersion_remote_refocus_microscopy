@@ -237,7 +237,6 @@ for RR and were avoided.
 </p>
 
 <h3 id="zoom_lens">Zoom lens</h3>
-<p style="color:red"><strong>UPDATE COMING SOON!</strong></p>
 <p>
 In our previous RR designs we used static lenses to adjust the magnification between the sample and the remote space 
 according to equation 2
@@ -255,8 +254,8 @@ produce a concrete design.
 
 <h4 id="zoom_lens_specifications">Specifications</h4>
 <p>
-To produce an inexpensive zoom lens with stock parts we narrow the optical requirement to a specific RR system. We
-assume a standard microscope at 40x magnification since this offers many attractive primary objective options (air, 
+To produce a zoom lens with stock parts we narrow the optical requirement to a specific RR system. We assume a 
+standard microscope at 40x magnification since this offers many attractive primary objective options (air, 
 water, silicone and oil immersion at high NA from various manufacturers). We then assume a 5mm focal length air lens 
 for the second RR objective (often referred to as 'objective 2' or O2). For example the Nikon 40x0.95 air lens 
 (9.5mm back focal plane diameter) is a good high NA option, with a high enough collection cone (~72deg) and pixel 
@@ -322,79 +321,84 @@ diffraction limited.
 	</tr>
 </table>
 <figcaption><strong>Figure A2: Optical performance.</strong> 
-This interactive figure shows screen shots from Zemax with layout, spot diagrams, PSF and wavefront error for 
-configurations 1 and 8 (i.e. the extremes of the zoom range).
+This interactive figure shows screen shots from Zemax with layout, spot diagrams, PSF (at the FOV edge) and wavefront 
+error for configurations 1 and 8 (i.e. the extremes of the zoom range).
 </figcaption>
 </figure>
 <p></p>
 
 <h4 id="zoom_lens_motion">Motion</h4>
-<p style="color:red"><strong>UPDATE COMING SOON!</strong></p>
 <p>
 Part of the design challenge in a zoom system is accommodating the motion of elements (or groups of elements). Here 
-we adopt relatively large motions of 2 of the 3 lens groups from the PNP design. This has the drawback of being 
-slower than small motions, but the benefit of loosening the opto-mechanical tolerances of the system, thereby 
-allowing us to use stock optics and mechanics. In <a href="#fig_zoom_motion" target="_self">Figure A3</a> we see how 
-we need to move the lens groups from the 'zero position' with a focal length of 132.5mm to the 'limit position' with 
-a focal length of 150mm. The negative lens (center element in the design) moves the most by almost 50mm, while the 
-positive group near the image move slightly less by around 42mm (the first lens group in the design is static).
+we adopt relatively large motions of all 3 lens groups from the PNP design. This has the drawback of being slower 
+than small motions, but the benefit of loosening the opto-mechanical tolerances of the system, thereby allowing us 
+to use stock optics and mechanics. In <a href="#fig_zoom_motion" target="_self">Figure A3</a> we see how we need to 
+move the lens groups from the 'zero position' with a focal length of 132.5mm to the 'limit position' with a focal 
+length of 150mm. The negative lens (center element in the design) moves the most by up to ~66mm, while the positive 
+groups near the objective and the image move by up to ~18mm and ~42mm respectively.
 </p>
 
 <figure id="fig_zoom_motion">
 <img src="figures/zoom_lens/optics/zoom_lens_motion.png" alt="Figure A3" id="fig_A3_png" style="width:100%;">
 <figcaption>
 <strong>Figure A3: Zoom lens motion.</strong> 
-This plot shows how the negative lens (central element in the PNP design) and positive group (2 achromats near the
-image) should move to produce a given focal length for the zoom lens. The first lens group in the PNP design is 
-static.
- </figcaption>
+This plot shows how the lens groups should move to produce a given focal length for the zoom lens. The 'stage1' curve
+is the required motion for the positive lens group near the objective (O2), the 'stage2' curve is for the negative 
+central element and the 'stage3' curve is for the positive lens group near the image plane.
+</figcaption>
 </figure>
 <p></p>
 
-<p> Below we provide the 'motion functions' that convert a requested focal length to a required movement of each lens
-or lens group (for driving linear stages or equivalent mechanics). Here's 
+<p> Below we provide the 'motion functions' that convert a requested focal length to a required movement of each
+lens or lens group (for driving linear stages or equivalent mechanics). Here's 
 <a href="figures/zoom_lens/optics/zoom_lens_motion_example.py" target="_self">an example</a> 
 for a focal length of 140mm:
 </p>
 <pre><code class="language-python"># Zoom_lens_132.5-150mm_motion.ods trendline polynomials
 # Data from Zemax
-def negative_lens_motion(f_mm):
-    motion_mm = (- 0.012921858472509 * f_mm**2
-                 + 6.467807910667240 * f_mm
-                 - 630.2815284192340)
-    return motion_mm
 
-def positive_group_motion(f_mm):
-    motion_mm = (+ 0.005518525287293 * f_mm**2
-                 + 0.885914869404723 * f_mm
-                 - 214.4010550854960)
-    return motion_mm
+def focal_length_to_lens_motion(f_mm, verbose=True):
+    stage1_mm = (-     0.000103278288*f_mm**4
+                 +     0.059929457484*f_mm**3
+                 -    13.033982374525*f_mm**2
+                 +  1260.150733009060*f_mm
+                 - 45717.573446038600)
+    stage2_mm = (-     0.000083979119*f_mm**4
+                 +     0.049656589716*f_mm**3
+                 -    10.961078884880*f_mm**2
+                 +  1074.586675413890*f_mm
+                 - 39574.398463973600)
+    stage3_mm = (+    0.000018343468*f_mm**4
+                 -    0.009692931167*f_mm**3
+                 +    1.950506313956*f_mm**2
+                 -  175.313955214666*f_mm
+                 + 5879.390039196680)
+    if verbose:
+        print('\nf_mm = %0.2f'%f_mm)
+        print('stage1_mm = %0.2f'%stage1_mm)
+        print('stage2_mm = %0.2f'%stage2_mm)
+        print('stage3_mm = %0.2f'%stage3_mm)
+    return stage1_mm, stage2_mm, stage3_mm
 
 # Input:
-f_mm = 140
-N_motion = negative_lens_motion(f_mm)
-P_motion = positive_group_motion(f_mm)
-print('requested focal length = %0.2f'%f_mm)
-print('negative lens motion   = %0.2f'%N_motion)
-print('positive group motion  = %0.2f'%P_motion)
+focal_length_to_lens_motion(140)
 
 # Output:
-## requested focal length = 140.00
-## negative lens motion   = 21.94
-## positive group motion  = 17.79
+## f_mm = 140.00
+## stage1_mm = 8.52
+## stage2_mm = 26.85
+## stage3_mm = 14.78
 </code></pre>
 
 <h4 id="zoom_lens_mechanics">Mechanics</h4>
-<p style="color:red"><strong>UPDATE COMING SOON!</strong></p>
 <p>
 Here we offer a relatively simple mechanical design 
-(<a href="#fig_zoom_mechanics" target="_self">Figure A4</a>), that utilizes some fast 50mm linear stages 
-from Thorlabs (DDS050). However, any mechanical solution that achieves the required alignment of the lenses and 
-relative motions is acceptable. The solution we present combines the zoom optics into a single large mount that can 
-(in principle) be aligned to an axis that is parallel to the optical table, and includes provision for an objective, 
-a dichroic and an unhampered image plane. The DDS050 stages have a max speed of 500mm/s so we can expect a responsive
-zoom experience for tuning the magnification to different sample types.
-See the included 
+(<a href="#fig_zoom_mechanics" target="_self">Figure A4</a>), that utilizes some fast 50-100mm linear stages 
+from Thorlabs (parts DDS050 and DDS100). However, any mechanical solution that achieves the required alignment of 
+the lenses and relative motions is acceptable. The solution we present combines the zoom optics into a single large 
+mount that can be aligned to an axis that is parallel to the optical table, and includes provision for an objective 
+and a dichroic. The DDS stages have a max speed of 500mm/s so we can expect a responsive zoom experience for tuning 
+the magnification to different sample types. See the included 
 <a href="figures/zoom_lens/mechanics/zoom_lens_132.5-150mm.pdf" target="_self">zoom_lens_132.5-150mm.pdf</a> 
 for a high quality reproduction of the 2D drawings, or 3D CAD in 
 <a href="figures/zoom_lens/mechanics/zoom_lens_132.5-150mm.EASM" target="_self">eDrawings</a>,
@@ -403,7 +407,7 @@ for a high quality reproduction of the 2D drawings, or 3D CAD in
 </p>
 
 <figure id="fig_zoom_mechanics">
-<img src="figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_1.png" alt="Figure A4" id="fig_A4_png" style="width:100%;">
+<img src="figures/zoom_lens/mechanics/images/zoom_lens_132.5-150mm_sheet_1.png" alt="Figure A4" id="fig_A4_png" style="width:100%;">
 <table class="figure_controls">
 	<tr>
 	<td>Drawing:</td>
@@ -416,13 +420,119 @@ for a high quality reproduction of the 2D drawings, or 3D CAD in
 	</select></td>
 	</tr>
 </table>
-<figcaption><strong>Figure A2: Mechanical design.</strong> 
+<figcaption><strong>Figure A4: Mechanical design.</strong> 
 This interactive figure shows the mechanical design of the zoom system including a dichroic and objective lens with 
 their associated mounts. The figure can be toggled between the different sheets of the drawings showing an overview,
 bill of materials, lens assembly, zoom configuration and alignment.
 </figcaption>
 </figure>
 <p></p>
+
+<h4 id="zoom_lens_alignment">Alignment</h4>
+<p>
+The alignment of the zoom lens can be tricky, but with patients and good practice it can be done. For an experienced
+builder a morning or afternoon should be enough time. Here are some pointers:
+</p>
+<ul>
+<li>Setup a low power (~1mW) collimated laser beam with an adjustable diameter from ~1mm to ~10mm. A green 
+laser beam like 532nm is preferred, since it has a central wavelength in the visible spectrum and appears bright to 
+the human eye. Adjust the beam so it's horizontal to the optical table. Use the ~1mm beam for checking beam 
+deviation and back reflections when aligning lenses to the laser beam. Use the ~10mm beam for checking the position
+of the focal planes.
+</li>
+<li>From the fully assembled 'PNP' zoom lens, remove the positive (P) lens groups, leaving only the negative (N) 
+lens on the DDS100 motorized stage. Now iteratively adjust the 'XY' and 'tip/tilt' of the negative lens until the 
+back reflections from the laser are centered on the ~1mm aperture. The back reflections should be symmetric over the 
+full range of the zoom lens (~100mm here).
+</li>
+<li>
+Using a separate mount, align the positive lens groups to the ~1mm laser beam and check the back reflections. 
+Because the positive groups consist of 2 separate achromats in a tube, it's possible for them to be poorly set and 
+not share the same optical axis. This will show in the back reflections where no combination of 'XY' and 'tip/tilt' 
+adjustment gives a clean and symmetric reflection. In this case the lenses need to be 're-seated' in the lens tubes. 
+Loosening the lens retaining ring and giving a gentle shake of the lens tube in a vertical position seems to work. 
+Some repetition may be needed.
+</li>
+<li>
+Now add the positive lens groups to the zoom lens assembly one at a time. For each lens group addition, repeat the 
+iterative 'XY' and 'tip/tilt' alignment for that group (without changing the alignment of any other group), making 
+sure the back reflection is clean over the full range of the zoom (~50mm here).
+</li>
+</ul>
+
+<h4 id="zoom_lens_control">Control</h4>
+<p>
+Here's <a href="figures/zoom_lens/mechanics/zoom_lens.py" target="_self">an example</a> script for changing the focal
+length of the zoom lens across the full range (132.5-150mm). Before attempting to run this script, make sure the 
+individual device adaptors for the <a href="https://github.com/amsikking/thorlabs_DDS050">DDS050</a> and
+<a href="https://github.com/amsikking/thorlabs_DDS100">DDS100</a> motorized stages are working, that the mechanical 
+assembly is correct and the start positions of the stages are appropriate for the homing routine.
+</p>
+
+<h4 id="zoom_lens_testing">Testing</h4>
+<p>
+It's worth verifying the performance of the zoom lens before incorporating it into a system. According to the
+optical design, the 'Z' position of the front focal plane (FFP) and back focal plane (BFP) should be stable over the 
+full range of the zoom. This can be tested in practice by observing a maximal 'speckle' pattern from some aluminum 
+foil or a glass diffuser placed in the focus of the zoom lens
+(<a href="#fig_zoom_speckle_test" target="_self">Figure A5</a>). With this test we found the FFP and BFP tolerance 
+to be better than +-100&mu;m 
+(<a href="figures/zoom_lens/testing/zoom_lens_speckle_data.py" target="_self">see script and data here</a>).
+</p>
+
+<figure id="fig_zoom_speckle_test">
+<video controls autoplay loop muted style="max-height:85%; max-width:100%;" id="fig_A5_mp4"
+poster="figures/zoom_lens/testing/speckle.png">
+ <source src="figures/zoom_lens/testing/FFP_speckle.mp4" type="video/mp4">
+ Your browser doesn't support HTML5 MP4 video.`
+</video>
+<table class="figure_controls">
+	<tr>
+	<td>Screen showing:</td>
+	<td><select id="figure_A5_choice" onchange="update_figure_A5()">
+			<option value="1" selected="selected">front focal plane (FFP)</option>  
+			<option value="2">back focal plane (BFP)</option>
+	</select></td>
+	</tr>
+</table>
+<figcaption><strong>Figure A5: Speckle testing.</strong> 
+This interactive figure shows the maximal speckle pattern from the focus of the zoom lens on a Thorlabs DG10-1500-MD
+glass diffuser as it cycles through the 8 Zemax configurations in the range 132.5-150mm. A collimated 532nm laser 
+with a ~10mm diameter was used as the input beam. The figure can be toggled between the front focal plane (FFP) and 
+back focal plane (BFP) orientations.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+Alternatively the focused laser spot from the ~10mm diameter beam can be imaged directly with a camera to confirm 
+it's XY and Z location as the zoom lens is adjusted over the full range
+(<a href="#fig_zoom_camera_test" target="_self">Figure A6</a>). Here we performed this test by sweeping a small 
+camera through the focus for each of the 8 Zemax configurations 
+(<a href="figures/zoom_lens/testing/zoom_lens_z_stack.py" target="_self">see acquisition script</a>). With this 
+setup we also found the maximum FFP and BFP deviations to be less than +-100&mu;m, and XY deviations in spot position 
+to be less than ~40&mu;m. Better results may be possible with more thorough alignment. Download 
+<a href="figures/zoom_lens/testing/FFP_data.zip" target="_self">FFP_data.zip</a> and
+<a href="figures/zoom_lens/testing/BFP_data.zip" target="_self">BFP_data.zip</a> to see the data and run the 
+scripts that estimate the focus position.
+</p>
+
+<figure id="fig_zoom_camera_test">
+<img src="figures/zoom_lens/testing/zoom_lens_camera_test.jpg" alt="Figure A6" id="fig_A6_jpg" style="width:100%;">
+<figcaption>
+<strong>Figure A6: Camera testing.</strong> 
+A photo of the camera based testing for the zoom lens. For each of the 8 Zemax configurations the camera was moved
+axially through the focus of the beam using a motorized stage. Images of the beam were captured at 25&mu;m intervals.
+</figcaption>
+</figure>
+<p></p>
+
+<p>
+If we assume a 40x magnification for the base microscope then a 40&mu;m XY deviation in the image plane corresponds to
+a ~1&mu;m XY shift in the sample (40&mu;m/40), and a 100&mu;m Z deviation in the focal plane to a ~60nm Z shift in 
+the sample (100&mu;m/40^2). Note that the maximum numerical aperture for the zoom lens is ~0.38 (5/132.5), and so 
+the +-100&mu;m result is within the traditional depth of field of ~370&mu;m (0.532/0.38^2).
+</p>
 
 <h3 id="large_fov_sols">Large FOV SOLS</h3>
 <h4 id="large_fov_sols_current">Current prototype</h4>

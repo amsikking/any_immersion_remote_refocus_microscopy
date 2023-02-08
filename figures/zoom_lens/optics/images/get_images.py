@@ -8,7 +8,7 @@ images = []
 for i, file in enumerate(filenames):
     image = imageio.imread(d + file)
     print(image.shape, type(image))
-    images.append(image[100:866, 125:1400, :])
+    images.append(image[:, 175:2400])
 
 image_sequence = []
 image_sequence.append(images[0])
