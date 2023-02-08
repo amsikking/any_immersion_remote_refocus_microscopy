@@ -455,8 +455,8 @@ Some repetition may be needed.
 </li>
 <li>
 Now add the positive lens groups to the zoom lens assembly one at a time. For each lens group addition, repeat the 
-iterative 'XY' and 'tip/tilt' alignment, making sure the back reflection is clean over the full range of the zoom
-(~50mm here).
+iterative 'XY' and 'tip/tilt' alignment for that group (without changing the alignment of any other group), making 
+sure the back reflection is clean over the full range of the zoom (~50mm here).
 </li>
 </ul>
 
@@ -475,8 +475,8 @@ It's worth verifying the performance of the zoom lens before incorporating it in
 optical design, the 'Z' position of the front focal plane (FFP) and back focal plane (BFP) should be stable over the 
 full range of the zoom. This can be tested in practice by observing a maximal 'speckle' pattern from some aluminum 
 foil or a glass diffuser placed in the focus of the zoom lens
-(<a href="#fig_zoom_speckle_test" target="_self">Figure A5</a>). This testing found the FFP and BFP tolerance to be
-better than +-100&mu;m 
+(<a href="#fig_zoom_speckle_test" target="_self">Figure A5</a>). With this test we found the FFP and BFP tolerance 
+to be better than +-100&mu;m 
 (<a href="figures/zoom_lens/testing/zoom_lens_speckle_data.py" target="_self">see script and data here</a>).
 </p>
 
@@ -507,10 +507,10 @@ back focal plane (BFP) orientations.
 <p>
 Alternatively the focused laser spot from the ~10mm diameter beam can be imaged directly with a camera to confirm 
 it's XY and Z location as the zoom lens is adjusted over the full range
-(<a href="#fig_zoom_camera_test" target="_self">Figure A6</a>). Here this testing was done by sweeping a small 
+(<a href="#fig_zoom_camera_test" target="_self">Figure A6</a>). Here we performed this test by sweeping a small 
 camera through the focus for each of the 8 Zemax configurations 
-(<a href="figures/zoom_lens/testing/zoom_lens_z_stack.py" target="_self">see acquisition script here</a>). This 
-testing also found the maximum FFP and BFP deviations to be less than +-100&mu;m, and XY deviations in spot position 
+(<a href="figures/zoom_lens/testing/zoom_lens_z_stack.py" target="_self">see acquisition script</a>). With this 
+setup we also found the maximum FFP and BFP deviations to be less than +-100&mu;m, and XY deviations in spot position 
 to be less than ~40&mu;m. Better results may be possible with more thorough alignment. Download 
 <a href="figures/zoom_lens/testing/FFP_data.zip" target="_self">FFP_data.zip</a> and
 <a href="figures/zoom_lens/testing/BFP_data.zip" target="_self">BFP_data.zip</a> to see the data and run the 
