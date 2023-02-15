@@ -1,7 +1,7 @@
 import thorlabs_DDS050
 import thorlabs_DDS100
 
-class Zoom_lens:
+class ZoomLens:
     def __init__(self,
                  stage1_port,
                  stage2_port,
@@ -25,6 +25,8 @@ class Zoom_lens:
             which_port=stage3_port, verbose=verbose, very_verbose=very_verbose)
         self.stage3.move_mm(self.stage3_set_point_mm, relative=False)
         self.f_mm = 132.5
+        self.f_mm_min = 132.5
+        self.f_mm_max = 150.0
 
     def focal_length_to_lens_motion(self, f_mm): # Zemax data
         stage1_mm = (-     0.000103278288*f_mm**4
@@ -45,7 +47,7 @@ class Zoom_lens:
         return stage1_mm, stage2_mm, stage3_mm
 
     def set_focal_length_mm(self, f_mm):
-        assert 132.5 <= f_mm <= 150
+        assert self.f_mm_min <= f_mm <= self.f_mm_max
         stage1_mm, stage2_mm, stage3_mm = self.focal_length_to_lens_motion(f_mm)
         if self.verbose:
             print('requested focal length = %0.2f'%f_mm)
@@ -91,7 +93,7 @@ if __name__ == '__main__':
     import numpy as np
     import time
     
-    zoom_lens = Zoom_lens(
+    zoom_lens = ZoomLens(
         stage1_port='COM3', stage2_port='COM5', stage3_port='COM4')
 
     print('\n# Configuration focal lengths:')
