@@ -537,14 +537,24 @@ enable the focal depths shown in <a href="#fig_sf_and_rr_depth" target="_self">F
 </p>
 
 <figure id="fig_zoom_optics">
-<img src="figures/zoom_lens/optics/output.gif" alt="Figure 7" id="fig_7_gif_1" style="width:100%;">
+<img src="figures/zoom_lens/optics/output.gif" alt="Figure 7" id="fig_7_gif" style="width:100%;">
+<table class="figure_controls">
+	<tr>
+	<td>Screen showing:</td>
+	<td><select id="figure_7_choice" onchange="update_figure_7()">
+			<option value="1" selected="selected">front focal plane (FFP)</option>  
+			<option value="2">back focal plane (BFP)</option>
+	</select></td>
+	</tr>
+</table>
 <figcaption>
 <strong>Figure 7: Dynamic zoom tube lens.</strong> 
 This animation shows an example of a zoom lens that can replace a static tube lens in a remote refocus microscope. In 
 this version the focal length varies continuously as the elements are moved, allowing the magnification of the RR to 
 be tuned across the biological refractive index range 1.33-1.51. The lens uses inexpensive stock parts, maintains 
 constant track length and telecentricity, and is diffraction limited across the visible spectrum and standard sCMOS 
-field of view (<a href="./appendix.html#zoom_lens">see appendix for details</a>).
+field of view (<a href="./appendix.html#zoom_lens">see appendix for details</a>). The figure is interactive and can 
+be toggled between the front focal plane (FFP) and back focal plane (BFP) orientations.
 </figcaption>
 </figure>
 <p></p>
