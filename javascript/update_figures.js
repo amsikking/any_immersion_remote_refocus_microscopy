@@ -20,6 +20,16 @@ function update_figure_6() {
   img.src = filename;
 }
 
+function update_figure_7() {
+  var number = document.getElementById("figure_7_choice").value;
+  if ((number === "1")){
+  var filename = "./figures/zoom_lens/optics/output.gif";}
+  if ((number === "2")){
+  var filename = "./figures/zoom_lens/optics/output_reversed.gif";}
+  var img = document.getElementById("fig_7_gif");
+  img.src = filename;
+}
+
 function update_figure_A2() {
   var config = document.getElementById("figure_A2_choice_configuration").value;
   var figure = document.getElementById("figure_A2_choice_figure").value;
