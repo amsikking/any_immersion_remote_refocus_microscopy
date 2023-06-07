@@ -44,15 +44,15 @@ function update_figure_A2() {
 function update_figure_A4() {
   var number = document.getElementById("figure_A4_choice_sheet").value;
   if ((number === "1")){
-  var filename = "./figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_" + number + ".png";}
+  var filename = "./figures/zoom_lens/mechanics/images/zoom_lens_132.5-150mm_sheet_" + number + ".png";}
   if ((number === "2")){
-  var filename = "./figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_" + number + ".png";}
+  var filename = "./figures/zoom_lens/mechanics/images/zoom_lens_132.5-150mm_sheet_" + number + ".png";}
   if ((number === "3")){
-  var filename = "./figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_" + number + ".png";}
+  var filename = "./figures/zoom_lens/mechanics/images/zoom_lens_132.5-150mm_sheet_" + number + ".png";}
   if ((number === "4")){
-  var filename = "./figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_" + number + ".png";}
+  var filename = "./figures/zoom_lens/mechanics/images/zoom_lens_132.5-150mm_sheet_" + number + ".png";}
   if ((number === "5")){
-  var filename = "./figures/zoom_lens/mechanics/images/Zoom_lens_132.5-150mm_sheet_" + number + ".png";}
+  var filename = "./figures/zoom_lens/mechanics/images/zoom_lens_132.5-150mm_sheet_" + number + ".png";}
   var img = document.getElementById("fig_A4_png");
   img.src = filename;
 }
