@@ -1,6 +1,9 @@
-import thorlabs_DDS050
-import thorlabs_DDS100
+# Imports from the python standard library:
 from threading import Thread
+
+# Our code, one .py file per module, copy files to your local directory:
+import thorlabs_DDS050  # github.com/amsikking/thorlabs_DDS100
+import thorlabs_DDS100  # github.com/amsikking/thorlabs_DDS050
 
 class ZoomLens:
     def __init__(self,
@@ -60,18 +63,21 @@ class ZoomLens:
             which_port=stage1_port,
             verbose=self.verbose,
             very_verbose=self.very_verbose)
+        return None
 
     def _init_stage2(self, stage2_port):
         self.stage2 = thorlabs_DDS100.Controller(
             which_port=stage2_port,
             verbose=self.verbose,
             very_verbose=self.very_verbose)
+        return None
 
     def _init_stage3(self, stage3_port):
         self.stage3 = thorlabs_DDS050.Controller(
             which_port=stage3_port,
             verbose=self.verbose,
             very_verbose=self.very_verbose)
+        return None
 
     def focal_length_to_lens_motion(self, f_mm): # Zemax data
         stage1_mm = (-     0.000103278288*f_mm**4
@@ -119,6 +125,7 @@ class ZoomLens:
         self.f_mm = f_mm
         if self.verbose:
             print('%s: -> set focal length = %0.2f'%(self.name, self.f_mm))
+        return None
 
     def close(self):
         if self.verbose: print("%s: closing..."%self.name)
